@@ -1,0 +1,109 @@
+\documentclass[9pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+% Times New Roman
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+
+% Interlineado 1.5
+\usepackage{setspace}
+\onehalfspacing
+
+% Justificación (por defecto en LaTeX)
+\usepackage{ragged2e}
+\justifying
+
+% Paquetes adicionales útiles
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc}
+\usetikzlibrary{babel}
+
+% Paquete para bloques de código
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    tabsize=2,
+    captionpos=b,
+    literate={"}{\textquotedbl}1
+             {"}{\textquotedbl}1
+             {"}{\textquotedbl}1
+             {'}{\textquotesingle}1
+             {'}{\textquotesingle}1
+             {–}{-}1
+             {—}{--}1
+}
+
+% Hyperref debe ir al final para evitar conflictos
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=blue,
+    pdftitle={Irakani Builder - Proyecto de Residencias},
+    pdfauthor={Angel David Mariscal Soto},
+}
+
+\begin{document}
+
+% ============================================
+% PRELIMINARES
+% ============================================
+
+% 1. Portada
+\input{portada}
+
+% 2. Agradecimientos
+\input{agradecimientos}
+
+% 3. Resumen
+\input{resumen}
+
+% 4. Índice
+\tableofcontents
+\newpage
+
+% ============================================
+% CAPÍTULOS
+% ============================================
+\input{capitulos/capitulo1}
+\input{capitulos/capitulo2}
+\input{capitulos/capitulo3}
+\input{capitulos/capitulo4}
+\input{capitulos/capitulo5}
+\input{capitulos/capitulo6}
+\input{capitulos/capitulo7}
+
+% ============================================
+% FUENTES DE INFORMACIÓN
+% ============================================
+\bibliographystyle{apalike}
+\bibliography{referencias}
+
+% ============================================
+% ANEXOS
+% ============================================
+\input{capitulos/capitulo8}
+
+\end{document}

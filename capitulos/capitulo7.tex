@@ -1,0 +1,151 @@
+\section{Competencias Desarrolladas}
+
+Durante el desarrollo del proyecto Irakani Builder se adquirieron y fortalecieron diversas competencias técnicas y blandas. Este capítulo presenta de manera honesta tanto los logros como los desafíos enfrentados, reconociendo que un proyecto de 6 meses proporciona experiencia práctica valiosa, aunque no necesariamente maestría en todas las áreas.
+
+\subsection{Competencias Técnicas (Hard Skills)}
+
+\subsubsection{Desarrollo Frontend}
+
+\textbf{React y TypeScript:} El proyecto proporcionó experiencia práctica significativa en el desarrollo de aplicaciones web con React 18 y TypeScript. Se trabajó con componentes funcionales, hooks básicos (useState, useEffect, useContext) y se implementó gestión de estado mediante Context API. Aunque se logró crear una interfaz funcional, la curva de aprendizaje fue pronunciada, especialmente al integrar TypeScript por primera vez en un proyecto de esta escala. Se experimentó con técnicas de optimización como lazy loading, aunque los resultados de la encuesta (3.33/5 en intuitividad) sugieren que hay margen considerable de mejora en la arquitectura de componentes y la experiencia de usuario.
+
+\textbf{Desafíos enfrentados:} La integración de múltiples librerías (Monaco Editor, paneles redimensionables) presentó conflictos de dependencias que requirieron investigación y prueba-error. El diseño responsive, si bien funcional, no alcanzó el nivel de refinamiento inicialmente planeado debido a restricciones de tiempo.
+
+\textbf{Interfaces de usuario:} Se implementaron funcionalidades como paneles redimensionables y la integración de Monaco Editor, lo que representó un desafío técnico importante. La experiencia con Monaco Editor obtuvo una calificación de 3.67/5, indicando que la implementación es funcional pero tiene áreas de mejora. El sistema de temas se completó exitosamente con más de 20 opciones, siendo una de las funcionalidades mejor recibidas. Sin embargo, la interfaz de arrastrar y soltar para el editor visual resultó más compleja de lo anticipado, y su implementación final es más básica de lo originalmente planeado.
+
+\subsubsection{Desarrollo Backend}
+
+\textbf{Express.js y Node.js:} Se adquirió experiencia práctica en el desarrollo de APIs RESTful utilizando Express.js, un framework minimalista para Node.js. La arquitectura de microservicios planteada en el diseño se implementó de forma simplificada, enfocándose en la separación de servicios principales (autenticación, IA, base de datos). Se implementó autenticación básica con JWT, aunque el sistema de autorización granular quedó como área de mejora futura. El manejo de operaciones asíncronas con async/await fue una de las áreas donde se logró mayor competencia, especialmente al trabajar con llamadas a AWS Bedrock que requieren gestión cuidadosa de timeouts y errores.
+
+\textbf{Aprendizajes clave:} La integración con servicios externos de AWS (Bedrock, S3, DynamoDB, Step Functions) mediante AWS SDK v3 enseñó la importancia del manejo de errores y la implementación de reintentos. Se cometieron errores iniciales en la gestión de conexiones a base de datos que causaron memory leaks, los cuales se identificaron y corrigieron mediante debugging sistemático. El uso de middleware de Express para validación y logging fue un aprendizaje importante.
+
+\textbf{Bases de datos:} Se trabajó con MySQL (usando mysql2) y SQL Server (usando mssql), desarrollando esquemas relacionales básicos y consultas SQL. Se utilizó Redis para caché, mejorando tiempos de respuesta en operaciones frecuentes. Las migraciones se implementaron de forma básica, y el versionamiento del esquema fue más manual de lo ideal. La optimización de consultas se realizó principalmente mediante la adición de índices básicos, sin llegar a técnicas avanzadas como vistas materializadas o procedimientos almacenados complejos.
+
+\subsubsection{Inteligencia Artificial}
+
+\textbf{Integración de APIs de IA:} La integración con AWS Bedrock fue el aspecto más desafiante y enriquecedor del proyecto. Se aprendió a trabajar con APIs de modelos de lenguaje, gestionar tokens y manejar las limitaciones inherentes a estos sistemas. El Prompt Engineering requirió un proceso iterativo de prueba y error; los primeros prompts generaban resultados inconsistentes, y fue necesario refinarlos múltiples veces basándose en los resultados reales. La calificación de 3.33/5 en calidad del código generado refleja que, aunque se logró funcionalidad básica, hay espacio significativo para mejorar la precisión de los prompts.
+
+\textbf{Logros y limitaciones:} Se logró una tasa baja de alucinaciones (100\% de usuarios reporta "rara vez"), lo cual es un éxito. Sin embargo, el código generado frecuentemente requiere correcciones manuales. La gestión de contexto en conversaciones es básica y podría mejorarse. El sistema de caché se implementó de forma simple, sin optimizaciones avanzadas de costos.
+
+\textbf{Generación de contenido:} La generación automática de código y componentes funciona, pero con limitaciones. Los usuarios valoran la funcionalidad (4.33/5 en utilidad del asistente), pero reconocen que el código necesita revisión. La generación de iconos fue más exitosa que la de código complejo, probablemente porque es una tarea más acotada. Se aprendió que la IA es mejor como asistente que como generador autónomo, requiriendo siempre supervisión humana.
+
+\subsubsection{Arquitectura de Software}
+
+\textbf{Patrones de diseño:} Se trabajó con una arquitectura inspirada en microservicios, aunque en la práctica la implementación es más un monolito modular que microservicios verdaderamente independientes. Se aplicaron patrones básicos de diseño y se intentó seguir principios SOLID, aunque la presión de tiempo llevó a tomar algunos atajos que generaron deuda técnica. El diseño de APIs RESTful fue relativamente exitoso, siguiendo convenciones estándar, aunque la documentación de endpoints podría ser más completa.
+
+\textbf{Aprendizajes arquitectónicos:} Se comprendió la importancia de la separación de responsabilidades, aunque no siempre se logró implementar perfectamente. La experiencia enseñó que diseñar una buena arquitectura desde el inicio es más fácil que refactorizar después, lección aprendida cuando fue necesario reestructurar partes del código a mitad del proyecto.
+
+\textbf{Escalabilidad y rendimiento:} El diseño consideró escalabilidad, pero la implementación actual es básica. Se utilizó caché de forma simple, sin estrategias avanzadas de invalidación. La optimización de rendimiento se realizó principalmente cuando surgieron problemas evidentes, más que de forma proactiva. Se implementó lazy loading en algunas rutas del frontend, pero no de manera sistemática. Los memory leaks mencionados anteriormente fueron un problema real que tomó tiempo identificar y resolver, enseñando la importancia del profiling y monitoreo desde etapas tempranas.
+
+\subsubsection{DevOps y Despliegue}
+
+\textbf{Contenedorización:} Se adquirió experiencia básica con Docker, creando Dockerfiles funcionales para el frontend y backend. La configuración de Docker Compose se utilizó principalmente para desarrollo local. Las imágenes Docker iniciales eran grandes y lentas de construir; se aprendió sobre multi-stage builds después de enfrentar estos problemas, mejorando los tiempos de build significativamente. La gestión de volúmenes y redes fue un área de aprendizaje con varios errores iniciales que causaron pérdida de datos en desarrollo.
+
+\textbf{Pipeline CI/CD:} Se configuró un pipeline básico con AWS CodePipeline, aunque más simple de lo descrito en la documentación inicial. El proceso de despliegue funciona pero requiere intervención manual en algunos pasos. La automatización completa quedó como objetivo futuro.
+
+\textbf{Control de versiones:} Se utilizó Git de forma efectiva para el control de versiones, aunque el flujo de trabajo fue más simple que Git Flow completo. Se trabajó principalmente con ramas feature y main, con merges directos. Hubo algunos conflictos de merge complicados que requirieron tiempo para resolver, especialmente cuando múltiples personas trabajaban en archivos relacionados. El uso de Bitbucket facilitó la colaboración, aunque las revisiones de código no fueron tan sistemáticas como sería ideal.
+
+\subsection{Competencias Blandas (Soft Skills)}
+
+\subsubsection{Gestión de Proyectos}
+
+\textbf{Metodologías ágiles:} Se aplicó Scrum de forma adaptada al contexto de un equipo pequeño. Los sprints de 2 semanas proporcionaron estructura, aunque no siempre se cumplieron los objetivos planificados. Las estimaciones iniciales fueron frecuentemente inexactas, mejorando con la experiencia a medida que avanzaba el proyecto. Jira fue útil para seguimiento, aunque la disciplina de actualizar tareas no fue perfecta. Las ceremonias de Scrum se realizaron, pero de forma más informal de lo que la metodología prescribe.
+
+\textbf{Aprendizajes en gestión:} Se aprendió que estimar desarrollo de software es difícil, especialmente con tecnologías nuevas. La integración de IA añadió incertidumbre significativa a las estimaciones. Se mejoró en la capacidad de identificar cuando una tarea era más compleja de lo anticipado y comunicarlo tempranamente.
+
+\textbf{Organización y planificación:} La planificación inicial fue optimista. Varios sprints se extendieron o tuvieron que reducir alcance. La gestión del tiempo fue un desafío constante, especialmente al balancear desarrollo con documentación y pruebas. Se aprendió a priorizar mejor con el tiempo, aunque hubo momentos de trabajar en funcionalidades menos críticas mientras otras más importantes quedaban pendientes. La documentación fue más reactiva que proactiva, escribiéndose principalmente cuando era necesaria más que de forma continua.
+
+\subsubsection{Resolución de Problemas}
+
+El proyecto presentó numerosos desafíos técnicos, algunos resueltos exitosamente y otros que requirieron compromisos. Se mejoró significativamente en la capacidad de descomponer problemas complejos, aunque inicialmente hubo tendencia a subestimar la complejidad de ciertas tareas. La investigación autónoma fue constante: Stack Overflow, documentación oficial, y foros de GitHub fueron recursos diarios. Se aprendió a distinguir entre soluciones rápidas y soluciones sostenibles, aunque la presión de tiempo a veces llevó a elegir la primera.
+
+\textbf{Debugging:} Se desarrolló paciencia para debugging sistemático, especialmente con problemas de integración entre servicios. Algunos bugs tomaron días en resolverse, enseñando la importancia de logging adecuado y herramientas de debugging. Se cometieron errores como no usar breakpoints efectivamente al inicio, mejorando estas habilidades con la práctica.
+
+\textbf{Decisiones técnicas:} Algunas decisiones técnicas fueron acertadas (usar TypeScript, elegir Express.js por su simplicidad), otras fueron aprendizajes (no invertir suficiente en testing desde el inicio). Se aprendió que las decisiones técnicas tienen consecuencias a largo plazo que no siempre son evidentes al momento de tomarlas.
+
+\subsubsection{Comunicación}
+
+\textbf{Comunicación técnica:} La documentación fue un desafío constante. Los comentarios en el código fueron inconsistentes, mejorando hacia el final del proyecto. La documentación de APIs se creó principalmente cuando fue necesaria para otros miembros del equipo. Se mejoró en la capacidad de explicar conceptos técnicos, especialmente al presentar el proyecto al Product Owner y stakeholders, aprendiendo a enfocarse en valor de negocio más que en detalles de implementación.
+
+\textbf{Desafíos de comunicación:} Hubo malentendidos sobre requisitos que resultaron en retrabajo. Se aprendió la importancia de confirmar entendimiento antes de implementar. Los diagramas de arquitectura fueron útiles pero se crearon tarde en el proyecto; haberlos hecho antes habría evitado confusiones.
+
+\textbf{Comunicación interpersonal:} La colaboración con el equipo fue generalmente buena, aunque hubo momentos de frustración cuando las prioridades no estaban claras. Se mejoró en la capacidad de pedir ayuda cuando era necesario, superando la tendencia inicial de intentar resolver todo solo. La recopilación de feedback de usuarios fue valiosa pero podría haberse hecho más temprano y frecuentemente. Las encuestas finales revelaron expectativas que no se conocían durante el desarrollo.
+
+\subsubsection{Aprendizaje Continuo}
+
+El proyecto requirió aprendizaje intensivo y constante. Muchas tecnologías (Express.js, AWS SDK v3, AWS Bedrock, Monaco Editor, Redis) eran nuevas, lo que significó una curva de aprendizaje pronunciada. Se pasaron muchas horas leyendo documentación, viendo tutoriales y experimentando. No todo lo aprendido se aplicó exitosamente; hubo tecnologías y enfoques que se probaron y descartaron.
+
+\textbf{Estrategias de aprendizaje:} Se aprendió principalmente haciendo, con mucho ensayo y error. Los tutoriales y documentación oficial fueron el punto de partida, pero la comprensión real vino de enfrentar problemas concretos. Stack Overflow y GitHub Issues fueron recursos invaluables para problemas específicos. Se mejoró en la habilidad de buscar información efectivamente, aprendiendo qué términos usar y cómo filtrar resultados relevantes.
+
+\textbf{Limitaciones:} No hubo tiempo para profundizar en todas las áreas deseadas. Algunos conceptos se entendieron superficialmente, suficiente para implementar la funcionalidad pero no para optimizar completamente. Se reconoce que hay mucho más por aprender en cada tecnología utilizada.
+
+\subsubsection{Pensamiento Crítico}
+
+Se desarrolló mayor capacidad de pensamiento crítico, aunque con limitaciones. Al inicio del proyecto, hubo tendencia a aceptar soluciones populares sin análisis profundo. Con el tiempo, se mejoró en evaluar trade-offs, aunque no siempre se tuvo el conocimiento suficiente para hacer la mejor elección. Algunas decisiones técnicas se basaron en información incompleta o supuestos que resultaron incorrectos, requiriendo ajustes posteriores.
+
+\textbf{Análisis de resultados:} Los resultados de la encuesta (promedio 3.67/5) requirieron análisis honesto. En lugar de justificar las calificaciones moderadas, se reconocieron como áreas de mejora legítimas. Esta capacidad de aceptar críticas constructivamente fue un aprendizaje importante.
+
+\subsubsection{Adaptabilidad}
+
+La adaptabilidad fue constantemente necesaria. Los requisitos cambiaron varias veces durante el desarrollo, requiriendo flexibilidad. Algunas funcionalidades planificadas se descartaron o simplificaron debido a restricciones de tiempo. Se aprendió a soltar ideas cuando no eran viables, aunque no siempre fue fácil.
+
+\textbf{Manejo de cambios:} Cambiar entre diferentes tareas (frontend, backend, IA, documentación) fue mentalmente demandante. Se mejoró en esta habilidad pero nunca se sintió completamente natural. Los obstáculos técnicos a veces causaron frustración, pero se desarrolló mayor resiliencia. Hubo momentos de querer rendirse con problemas particularmente difíciles, pero se aprendió a tomar descansos y volver con perspectiva fresca.
+
+\subsubsection{Atención al Detalle}
+
+La atención al detalle fue inconsistente. En áreas críticas (integración de IA, autenticación) se prestó mucha atención, pero en otras áreas hubo descuidos que causaron bugs. La revisión de código no fue tan sistemática como debería, resultando en algunos errores que llegaron a fases avanzadas. Se mejoró en validación de casos edge con el tiempo, especialmente después de encontrar bugs en producción que podrían haberse prevenido.
+
+\textbf{Experiencia de usuario:} Los detalles visuales y de UX recibieron menos atención de la deseada, reflejado en la calificación de 3.33/5 en intuitividad. Algunos mensajes de error son genéricos cuando deberían ser más específicos. Las animaciones y transiciones son básicas. Se reconoce que pulir estos detalles habría mejorado significativamente la percepción de calidad.
+
+\subsubsection{Orientación a Resultados}
+
+Hubo enfoque en entregar funcionalidad, aunque no siempre con la calidad deseada. La presión de cumplir plazos a veces llevó a comprometer calidad por velocidad, decisiones que se lamentaron después. Se logró entregar un producto funcional que genera valor (100% de usuarios reporta ahorro de tiempo >30%), lo cual es el resultado más importante.
+
+\textbf{Métricas y medición:} La medición de impacto se realizó principalmente al final mediante la encuesta. Habría sido mejor tener métricas continuas durante el desarrollo. Algunas optimizaciones se hicieron sin medir el impacto real, basándose en intuición más que en datos.
+
+\subsubsection{Trabajo en Equipo}
+
+El trabajo en equipo fue generalmente positivo, con colaboración efectiva en la mayoría de situaciones. Se compartió conocimiento cuando alguien encontraba una solución útil, aunque esto podría haberse hecho más sistemáticamente. Hubo momentos de frustración cuando las expectativas no estaban alineadas o cuando el trabajo de uno dependía del trabajo de otro que se retrasaba.
+
+\textbf{Colaboración real:} Las revisiones de código fueron útiles pero no tan frecuentes como deberían. A veces se aprobaban cambios sin revisión profunda por presión de tiempo. Se aprendió a pedir ayuda más efectivamente, reconociendo que luchar solo con un problema por horas no es productivo. El ambiente de trabajo fue mayormente positivo, con apoyo mutuo en momentos difíciles del proyecto.
+
+\textbf{Desafíos de equipo:} La coordinación entre frontend y backend tuvo algunos problemas de comunicación que causaron incompatibilidades en APIs. Se mejoró estableciendo contratos de API más claros. El trabajo remoto añadió desafíos de comunicación que se superaron con reuniones más frecuentes.
+
+\subsection{Integración de Competencias y Reflexión}
+
+El desarrollo de Irakani Builder demostró que el éxito en proyectos de software requiere tanto competencias técnicas como blandas, y que ambas se desarrollan simultáneamente a través de la experiencia práctica.
+
+\textbf{Ejemplos de integración:}
+
+La implementación del asistente de IA requirió conocimientos técnicos (APIs, manejo de respuestas asíncronas) pero también habilidades de prompt engineering que se desarrollaron mediante prueba y error, pensamiento crítico para evaluar resultados, y comunicación para explicar limitaciones a stakeholders. Los desafíos técnicos enseñaron tanto sobre tecnología como sobre gestión de expectativas.
+
+El trabajo con Scrum integró organización, comunicación y conocimientos técnicos. Las estimaciones iniciales fueron inexactas porque faltaba experiencia tanto en las tecnologías como en el proceso de estimación mismo. Mejorar en uno ayudó a mejorar en el otro.
+
+\textbf{Lecciones integradas:}
+
+Se aprendió que las habilidades técnicas sin comunicación efectiva llevan a malentendidos y retrabajo. La mejor solución técnica no sirve si no se puede explicar o si no resuelve el problema real del usuario. Inversamente, buenas habilidades de comunicación no compensan falta de conocimiento técnico; ambas son necesarias.
+
+\subsection{Impacto en el Desarrollo Profesional}
+
+Las competencias desarrolladas durante el proyecto Irakani Builder proporcionan una base práctica valiosa para el desarrollo profesional, aunque se reconoce que representan el inicio de un camino de aprendizaje continuo más que un punto de llegada.
+
+\textbf{Competencias técnicas adquiridas:}
+
+La experiencia en \textbf{desarrollo full stack} con React, TypeScript, Express.js, Node.js y bases de datos relacionales (MySQL, SQL Server) proporciona conocimientos prácticos en tecnologías demandadas. Sin embargo, se reconoce que hay profundidad por desarrollar en cada área. La experiencia es suficiente para contribuir en proyectos, pero no para roles senior que requieren expertise profundo.
+
+Los \textbf{conocimientos en IA} son principalmente en integración y uso de APIs, no en desarrollo de modelos. Esta experiencia es valiosa dado el crecimiento del área, pero es importante ser honesto sobre el alcance: se aprendió a usar herramientas de IA, no a crearlas.
+
+La experiencia en \textbf{arquitectura de software} es introductoria. Se comprendieron conceptos y se aplicaron en escala pequeña, pero falta experiencia en sistemas de mayor escala y complejidad.
+
+\textbf{Competencias blandas desarrolladas:}
+
+Se mejoró en \textbf{gestión de proyectos}, aprendiendo tanto de éxitos como de errores en estimación y planificación. La experiencia con Scrum es práctica pero básica.
+
+La \textbf{resolución de problemas} mejoró significativamente, desarrollando mayor autonomía y persistencia. Esta es quizás la competencia más valiosa: la confianza de que problemas desconocidos pueden resolverse con investigación y esfuerzo.
+
+\textbf{Áreas de crecimiento futuro:}
+
+Se identifican claramente áreas que requieren desarrollo adicional: testing automatizado, seguridad en profundidad, optimización de rendimiento, y diseño de UX. El proyecto proporcionó exposición a estas áreas pero no maestría.
+
+\textbf{Valor real del proyecto:}
+
+El valor principal del proyecto no es haber "dominado" tecnologías, sino haber desarrollado la capacidad de aprender nuevas tecnologías, enfrentar problemas complejos, y entregar un producto funcional que genera valor real (evidenciado por el 100\% de usuarios reportando ahorro de tiempo). Esta experiencia práctica, con sus éxitos y desafíos, proporciona una base sólida para continuar creciendo profesionalmente.

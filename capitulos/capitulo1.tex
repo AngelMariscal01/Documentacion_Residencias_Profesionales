@@ -1,0 +1,159 @@
+\section{Generalidades del proyecto}
+
+\subsection{Antecedentes del Problema(s)}
+
+La estructura operativa de Irakani (ITERADAPTA) se organiza en tres áreas técnicas principales: Proyectos, Soporte Técnico y Plataforma. El área de Proyectos es la responsable directa de desarrollar y entregar soluciones personalizadas (aplicaciones móviles y web) a los clientes finales. Para lograrlo, su flujo de trabajo depende fundamentalmente de un ecosistema de herramientas internas gestionado por el área de Plataforma, en la cual se enmarca esta investigación.
+
+El componente central de este ecosistema es la plataforma de desarrollo low-code app.irakani.com, una aplicación web construida con frameworks obsoletos. Esta herramienta fue concebida para que el equipo de Proyectos pudiera construir y desplegar aplicaciones de manera ágil. Sin embargo, con el paso del tiempo, esta plataforma interna se ha convertido en el principal cuello de botella para la innovación y la eficiencia de la empresa, dando origen a la necesidad de desarrollar su sucesor: Irakani Builder.
+
+Los problemas de app.irakani.com son de naturaleza técnica y estratégica, y se pueden desglosar de la siguiente manera:
+
+\textbf{Tecnología Obsoleta:} El uso de un framework desactualizado es la causa raíz de múltiples inconvenientes, entre los que se incluyen:
+
+\begin{itemize}
+    \item Incompatibilidad con navegadores web modernos, afectando la experiencia del usuario.
+    \item Limitaciones severas para implementar nuevas funcionalidades demandadas por el mercado.
+    \item Dificultades crecientes en el mantenimiento y la actualización del código base.
+\end{itemize}
+
+\textbf{Limitaciones de Rendimiento:} La arquitectura actual es ineficiente y no puede gestionar de manera óptima las demandas operativas, lo que se manifiesta en:
+
+\begin{itemize}
+    \item Incapacidad para manejar múltiples usuarios concurrentes sin degradación del servicio.
+    \item Lentitud en el procesamiento de aplicaciones complejas.
+    \item Imposibilidad de una integración fluida con servicios de inteligencia artificial.
+    \item Falta de una gestión optimizada de los recursos del servidor.
+\end{itemize}
+
+\textbf{Falta de Integración con Inteligencia Artificial (IA):} La ausencia de capacidades de IA es una de las mayores debilidades, limitando el potencial de la plataforma al impedir:
+
+\begin{itemize}
+    \item La automatización de los procesos de desarrollo.
+    \item La provisión de asistencia inteligente a los usuarios para facilitar la creación de aplicaciones.
+    \item La optimización automática del código generado.
+    \item La personalización de la experiencia del usuario a través de IA.
+\end{itemize}
+
+Estos problemas internos se ven agravados por las necesidades actuales del mercado, que demanda soluciones que ofrezcan desarrollo rápido, asistentes de IA que guíen el proceso, accesibilidad para usuarios sin conocimientos técnicos avanzados y una alta escalabilidad. La plataforma existente no puede satisfacer estas demandas, justificando así el desarrollo de una nueva solución desde cero.
+
+\subsection{Planteamiento del Problema(s)}
+
+La plataforma actual, app.irakani.com, representa un problema multifactorial que va más allá de la simple obsolescencia tecnológica. Su arquitectura y stack tecnológico anticuados se han convertido en un freno directo para la eficiencia operativa y la rentabilidad de la empresa, comprometiendo su competitividad. El problema se manifiesta en tres dimensiones críticas y cuantificables:
+
+\begin{enumerate}
+    \item \textbf{Problema de Tiempo y Rendimiento:} El ciclo de desarrollo actual utiliza un enfoque tradicional en el que un desarrollador ejecuta las fases de una metodología de desarrollo de software (análisis, diseño, desarrollo, pruebas y retroalimentación), lo que se traduce en tiempos de entrega prolongados y un bajo rendimiento de las aplicaciones finales. Tareas fundamentales que actualmente consumen jornadas completas, como la generación de una aplicación base (aproximadamente 12 horas) o la construcción de formularios complejos (4 horas), son relativamente lentas. Esta lentitud no solo retrasa los proyectos, sino que impide que la empresa asuma un mayor volumen de trabajo, limitando su capacidad de crecimiento.
+    
+    \item \textbf{Problema de Costos Operativos:} La ineficiencia en el tiempo se traduce directamente en altos costos de mano de obra. Un análisis de proyectos internos, como el caso de estudio ``Ojo Zarco'', revela que una tarea que requería 6 horas-persona (dos desarrolladores durante tres horas) podría ejecutarse con la mitad del personal en el mismo tiempo. Esto indica que la plataforma actual no solo duplica el esfuerzo humano necesario, sino que eleva los costos de proyecto en aproximadamente un 33\% en comparación con una solución optimizada. La incapacidad de la plataforma para escalar eficientemente también genera un sobrecosto en la infraestructura de servidores.
+    
+    \item \textbf{Problema de Innovación y Brecha Competitiva (IA):} La ausencia total de integración con Inteligencia Artificial (IA) es la deficiencia estratégica más grave. Mientras el mercado avanza hacia herramientas que automatizan y asisten el desarrollo, app.irakani.com mantiene a los desarrolladores en un paradigma de trabajo manual. Esto impide aprovechar las mejoras exponenciales de productividad que ofrece la IA, como la generación de código a partir de lenguaje natural, la optimización automática de consultas y la creación de recursos gráficos en minutos en lugar de horas. Esta carencia posiciona a la empresa en una clara desventaja competitiva, impidiéndole ofrecer soluciones más rápidas, económicas e innovadoras.
+\end{enumerate}
+
+\subsection{Objetivo General}
+
+Diseñar e implementar ``Irakani Builder'', una plataforma web moderna que solucione la ineficiencia y el alto costo de desarrollo de la empresa. Esto se logrará mediante la construcción de una arquitectura basada en tecnologías actuales (React 18, Node.js) y, fundamentalmente, con la integración de un modelo de Inteligencia Artificial a través de AWS Bedrock. Dicha IA permitirá la generación automática de aplicaciones, código y componentes a partir de lenguaje natural, con el objetivo medible de reducir los tiempos de ciclo de desarrollo en un 30-50\% y disminuir los costos de mano de obra asociados hasta en un 33\%.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+    \item Asimilar el ecosistema de Irakani.
+    \item Analizar los casos de uso y flujo de trabajo del equipo de Proyectos para optimizar el nuevo diseño.
+    \item Interpretar la estructura de las aplicaciones y bases de datos del sistema de Irakani.
+    \item Comprender la interacción entre las áreas de Proyectos, Soporte Técnico y Plataforma de Irakani.
+    \item Implementar una interfaz de usuario moderna y responsiva usando React 18 y TypeScript.
+    \item Crear componentes reutilizables para el editor visual de aplicaciones.
+    \item Desarrollar un sistema de temas personalizable con más de 20 opciones predefinidas para la edición de código.
+    \item Integrar Monaco Editor para una edición de código avanzada con resaltado de sintaxis.
+    \item Desarrollar servicios de autenticación y autorización seguros.
+    \item Crear endpoints específicos para la gestión de bases de datos y la generación.
+    \item Integrar AWS Bedrock para la generación automática de código, aplicaciones, listas, perfiles y entidades.
+    \item Integración de gestión de base de datos.
+    \item Desarrollar y optimizar prompts para diferentes tipos de contextos.
+    \item Implementar un sistema de chat inteligente que brinde asistencia durante el desarrollo.
+    \item Crear servicios para el análisis y la optimización automática del código generado.
+    \item Desarrollar un administrador de bases de datos asistido por IA.
+    \item Implementar soporte para múltiples motores de bases de datos, incluyendo MySQL y SQL Server.
+    \item Crear herramientas para la consulta inteligente y la optimización de bases de datos.
+    \item Reducir en un 60\% el tiempo necesario para la creación de aplicaciones básicas.
+    \item Lograr una curva de aprendizaje optimizada en un 40\% para los nuevos usuarios.
+\end{itemize}
+
+
+\subsection{Justificación}
+
+El desarrollo del proyecto Irakani Builder se justifica como una transformación estratégica indispensable, diseñada para resolver la ineficiencia operativa y los altos costos impuestos por la plataforma app.irakani.com. Esta iniciativa no es una simple actualización tecnológica, sino una reinvención de la capacidad productiva de la empresa, anclada en métricas proyectadas y casos de estudio internos que demuestran un impacto directo en la eficiencia, la rentabilidad y la competitividad.
+
+La justificación se cimienta en los siguientes resultados cuantificables esperados:
+
+\textbf{Reducción Radical de Tiempos y Costos:} La principal justificación del proyecto es su impacto financiero y operativo. La integración de Inteligencia Artificial a través de AWS Bedrock y una arquitectura moderna automatizará tareas clave que actualmente consumen una cantidad significativa de recursos.
+
+\textbf{Métricas de Eficiencia:} El resultado más tangible será una drástica reducción del tiempo de desarrollo, con ahorros proyectados del 50\% en la generación de aplicaciones completas, 40\% en la construcción de formularios y hasta un 60\% en tareas de diseño como la creación de iconos.
+
+\textbf{Impacto en Costos:} Esta ganancia de eficiencia se traduce en una reducción directa de los costos de mano de obra. El caso de estudio interno ``Ojo Zarco'' demostró que una tarea que tradicionalmente requería 6 horas-persona (dos desarrolladores) se completó con solo 3 horas-persona (un desarrollador), logrando una reducción del 33\% en el costo total del proyecto y requiriendo un 50\% menos de personal.
+
+\textbf{Mejora de la Capacidad de Negocio y Satisfacción del Cliente:} Al acelerar los ciclos de desarrollo, la empresa podrá asumir un mayor volumen de proyectos y de mayor complejidad.
+
+\textbf{Mejora del Rendimiento y la Calidad:} Es fundamental subrayar que Irakani Builder no se concibe como un sustituto del desarrollador, sino como un potente aliado para aumentar su capacidad. La plataforma está diseñada para ser una herramienta de apoyo que agiliza drásticamente las fases iniciales del desarrollo, como la creación de prototipos funcionales, y reduce errores comunes al automatizar tareas repetitivas. Al liberar a los desarrolladores de estas labores, pueden enfocar su talento en la lógica de negocio compleja, la optimización y la obtención de ideas y requerimientos de mayor valor, mejorando significativamente la calidad final del producto. Esta mejora en la calidad y fiabilidad de los entregables impactará directamente en una mayor satisfacción y retención de clientes.
+
+\textbf{Innovación y Ventaja Competitiva:} El mercado exige herramientas que no solo sean rápidas, sino inteligentes. Irakani Builder responde a esta demanda al posicionar la IA como el núcleo de su propuesta de valor. Esto representa una ventaja competitiva decisiva, alineando a la empresa con estudios de mercado, como el de GitHub Copilot, que demuestran aumentos de productividad de más del 55\% para desarrolladores que utilizan asistentes de IA.
+
+En resumen, la ejecución de Irakani Builder se justifica plenamente porque cada una de sus características se traduce en un beneficio medible. Resuelve problemas técnicos para generar un valor de negocio tangible: desarrollar mejores productos, más rápido y a un menor costo, asegurando así el crecimiento sostenible y el liderazgo de la empresa en la era de la inteligencia artificial.
+
+
+\subsection{Limitaciones}
+
+\begin{enumerate}
+    \item \textbf{Dependencia de Servicios de Terceros (AWS Bedrock):}
+    \begin{itemize}
+        \item \textbf{Disponibilidad y Rendimiento:} La funcionalidad central de generación de código y asistencia inteligente de Irakani Builder depende directamente de la API de AWS Bedrock. Cualquier interrupción, cambio en los términos de servicio, latencia o degradación del rendimiento del servicio de AWS impactará de forma directa en la operatividad y experiencia de usuario de la plataforma.
+        \item \textbf{Costos Operativos:} El modelo de negocio y la rentabilidad de Irakani Builder estarán intrínsecamente ligados a la estructura de precios de AWS Bedrock. Cambios inesperados o incrementos en las tarifas de uso del modelo de IA podrían afectar la viabilidad económica del proyecto a largo plazo.
+        \item \textbf{Limitaciones del Modelo de IA:} La calidad, precisión y creatividad del código y los componentes generados están limitadas por las capacidades del modelo de IA subyacente de AWS Bedrock. El proyecto no tiene control sobre el entrenamiento, los posibles sesgos o las ``alucinaciones'' (respuestas incorrectas pero verosímiles) del modelo, lo que requerirá una supervisión y validación constante por parte del usuario.
+    \end{itemize}
+    
+    \item \textbf{Complejidad de la Generación de Código para Casos de Uso Avanzados:}
+    \begin{itemize}
+        \item \textbf{Personalización y Lógica de Negocio Compleja:} Aunque la plataforma está diseñada para acelerar el desarrollo, la generación automática de código para aplicaciones con lógica de negocio altamente especializada, algoritmos complejos o requisitos de rendimiento muy específicos puede ser limitada. En estos escenarios, la intervención manual de un desarrollador experimentado seguirá siendo indispensable.
+        \item \textbf{Optimización del Código Generado:} La IA generará código funcional, pero no necesariamente el más optimizado en términos de rendimiento o buenas prácticas. Se requerirá un proceso de revisión y refactorización por parte de los desarrolladores para asegurar la calidad y escalabilidad de las aplicaciones finales, especialmente en proyectos de gran envergadura.
+    \end{itemize}
+    
+    \item \textbf{Alcance de la Plataforma como Herramienta Low-Code:}
+    \begin{itemize}
+        \item \textbf{Flexibilidad vs. Simplicidad:} Como plataforma low-code, Irakani Builder busca un equilibrio entre la facilidad de uso y la flexibilidad. Inevitablemente, habrá un compromiso: las abstracciones que simplifican el desarrollo para usuarios novatos pueden limitar el control granular que los desarrolladores avanzados podrían desear.
+        \item \textbf{Curva de Aprendizaje para Funcionalidades Avanzadas:} Si bien se proyecta reducir la curva de aprendizaje general, dominar las funcionalidades más avanzadas, como la optimización de prompts para la IA o la configuración de integraciones complejas, requerirá un proceso de aprendizaje y capacitación específico para los usuarios.
+    \end{itemize}
+    
+    \item \textbf{Dependencia Tecnológica y Mantenimiento:}
+    \begin{itemize}
+        \item \textbf{Ciclo de Vida de las Tecnologías:} El proyecto se basa en tecnologías modernas como React 18 y Node.js. Sin embargo, el rápido ritmo de evolución de estos frameworks implica la necesidad de un mantenimiento y actualización continuos para evitar la obsolescencia tecnológica que precisamente se busca superar.
+        \item \textbf{Gestión de Dependencias:} El proyecto dependerá de librerías y paquetes de terceros del ecosistema de JavaScript. Esto introduce riesgos potenciales de seguridad si no se gestionan y actualizan adecuadamente, además de posibles conflictos de compatibilidad.
+    \end{itemize}
+    
+    \item \textbf{Limitaciones de los Recursos y del Entorno del Proyecto:}
+    \begin{enumerate}
+        \item \textbf{Recursos Humanos y de Tiempo:} El desarrollo de la plataforma está sujeto a las limitaciones del equipo de desarrollo y los plazos establecidos. El alcance final de las funcionalidades implementadas en la primera versión estará condicionado por estos recursos.
+        \item \textbf{Enfoque Inicial en Motores de BD Específicos:} Aunque se planea el soporte para múltiples motores de bases de datos, la fase inicial del desarrollo se centrará en MySQL y SQL Server. La integración con otras bases de datos (NoSQL, etc.) quedará como una mejora para futuras iteraciones del proyecto.
+    \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Delimitaciones}
+
+Para asegurar la viabilidad del proyecto y enfocar los esfuerzos de desarrollo en los objetivos prioritarios, se establecen las siguientes delimitaciones que definen el alcance de ``Irakani Builder'':
+
+\textbf{Público Objetivo:}
+
+El proyecto Irakani Builder está concebido y dirigido exclusivamente al equipo de desarrollo interno de la empresa ITERADAPTA (Irakani), con un enfoque principal en el área de Proyectos. Aunque busca reducir la curva de aprendizaje, la herramienta está diseñada para ser utilizada por personal técnico (desarrolladores), y no se contempla en esta fase su uso por parte de usuarios finales sin conocimientos de programación o clientes externos.
+
+\textbf{Alcance Tecnológico (Stack):}
+
+El desarrollo del proyecto se acotará al siguiente stack tecnológico principal:
+
+\begin{itemize}
+    \item \textbf{Frontend:} Se utilizará la librería React 18 en conjunto con TypeScript para garantizar un desarrollo robusto y escalable. La edición de código se implementará a través de Monaco Editor.
+    \item \textbf{Backend:} La lógica del servidor y la API se construirán sobre el entorno de ejecución Node.js.
+    \item \textbf{Inteligencia Artificial:} La integración de capacidades de IA Generativa se realizará exclusivamente a través de los servicios de AWS Bedrock, sin contemplar el entrenamiento o desarrollo de modelos de lenguaje propios.
+    \item \textbf{Bases de Datos:} El soporte inicial se centrará en los motores de bases de datos relacionales MySQL y SQL Server. La compatibilidad con otras bases de datos, como sistemas NoSQL, queda fuera del alcance de la versión inicial.
+\end{itemize}
+
+\textbf{Tipo y Naturaleza del Proyecto:}
+
+Irakani Builder se define como una plataforma web de desarrollo asistido por IA (AI-assisted low-code platform) de uso interno. Su naturaleza es la de una herramienta de productividad y no la de un producto de software comercializable para el público general. El proyecto se enfoca en la creación del constructor de aplicaciones y no en las aplicaciones específicas que se generen con él. No pretende reemplazar por completo un Entorno de Desarrollo Integrado como VS Code, sino especializarse y acelerar los flujos de trabajo y los tipos de aplicaciones que son recurrentes en la empresa.

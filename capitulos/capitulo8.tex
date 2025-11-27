@@ -1,0 +1,326 @@
+\section{Anexos}
+
+\subsection{Anexo A: Glosario de Términos}
+
+\subsubsection{Términos Técnicos}
+
+\begin{description}
+
+\item[API (Application Programming Interface)] Conjunto de definiciones y protocolos que permite la comunicación entre diferentes aplicaciones de software. En el contexto de Irakani Builder, se utilizan APIs para conectar el frontend con el backend y para integrar servicios externos como modelos de IA.
+
+\item[AWS SDK (Amazon Web Services Software Development Kit)] Conjunto de herramientas y bibliotecas para interactuar con servicios de AWS. Irakani Builder utiliza AWS SDK v3 para integrar servicios como Bedrock, S3, DynamoDB y Step Functions.
+
+\item[Alucinación (IA)] Fenómeno en el que un modelo de inteligencia artificial genera información incorrecta, inventada o sin fundamento, presentándola con confianza como si fuera verdadera. Es un desafío común en modelos de lenguaje grandes.
+
+\item[AMI (Amazon Machine Image)] Imagen de máquina virtual en AWS que contiene el sistema operativo, aplicaciones y configuraciones necesarias para lanzar instancias EC2.
+
+\item[Arquitectura Monolítica] Arquitectura de software donde todos los componentes de la aplicación están fuertemente acoplados y se ejecutan como una única unidad, en contraste con arquitecturas de microservicios.
+
+\item[Auto Scaling Group] Grupo de instancias EC2 en AWS que escalan automáticamente hacia arriba o hacia abajo según la demanda, permitiendo mantener disponibilidad y optimizar costos.
+
+\item[AWS Bedrock] Servicio de AWS que proporciona acceso a modelos fundacionales de IA de diferentes proveedores a través de una API unificada, facilitando la integración de capacidades de IA generativa.
+
+\item[AWS CodeBuild] Servicio de compilación completamente administrado de AWS que compila código fuente, ejecuta pruebas y produce paquetes de software listos para desplegar.
+
+\item[AWS CodePipeline] Servicio de integración y entrega continua (CI/CD) de AWS que automatiza las fases de construcción, prueba y despliegue del proceso de lanzamiento de software.
+
+\item[AWS Cognito] Servicio de AWS para autenticación, autorización y gestión de usuarios que permite agregar registro e inicio de sesión a aplicaciones web y móviles.
+
+\item[AWS DynamoDB] Base de datos NoSQL completamente administrada de AWS que proporciona rendimiento rápido y predecible con escalabilidad perfecta.
+
+\item[AWS S3] Servicio de almacenamiento de objetos de AWS que ofrece escalabilidad, disponibilidad de datos, seguridad y rendimiento líderes en la industria.
+
+\item[AWS Step Functions] Servicio de orquestación de workflows de AWS que permite coordinar múltiples servicios de AWS en flujos de trabajo sin servidor.
+
+\item[Axios] Cliente HTTP basado en promesas para Node.js y el navegador. Utilizado en Irakani Builder para realizar peticiones HTTP a APIs externas.
+
+\item[Backlog Refinement] Sesiones periódicas en Scrum donde el equipo revisa, estima y prioriza historias de usuario futuras del Product Backlog para prepararlas para próximos sprints.
+
+\item[Backend] Parte del sistema que se ejecuta en el servidor y maneja la lógica de negocio, el acceso a bases de datos y la comunicación con servicios externos. No es visible directamente para el usuario final.
+
+\item[BFF (Backend for Frontend)] Patrón arquitectónico que consiste en crear una capa de abstracción específica entre el frontend y los servicios backend, optimizando la comunicación para las necesidades particulares de cada interfaz.
+
+\item[Breakpoint] Punto de parada intencional en el código durante el debugging que permite pausar la ejecución del programa para inspeccionar el estado de variables y el flujo de ejecución.
+
+\item[Caché] Mecanismo de almacenamiento temporal de datos frecuentemente accedidos para mejorar el rendimiento y reducir la latencia. En Irakani Builder se utiliza para almacenar respuestas de IA y reducir costos.
+
+\item[Canvas] Área de trabajo principal en el editor visual donde los usuarios ensamblan componentes para construir sus aplicaciones mediante arrastrar y soltar.
+
+\item[Chain-of-Thought] Técnica de prompt engineering que instruye al modelo de IA a pensar paso a paso, descomponiendo problemas complejos en pasos intermedios para mejorar la calidad del razonamiento.
+
+\item[CI/CD (Continuous Integration/Continuous Deployment)] Prácticas de desarrollo que automatizan la integración de código y el despliegue de aplicaciones, permitiendo entregas más rápidas y confiables.
+
+\item[Claude] Modelo de lenguaje grande desarrollado por Anthropic, utilizado como alternativa a GPT para tareas de generación de texto y código.
+
+\item[CloudWatch] Servicio de monitoreo y observabilidad de AWS que recopila y rastrea métricas, logs y eventos de recursos y aplicaciones en AWS.
+
+\item[Componente] Elemento reutilizable de interfaz de usuario que encapsula funcionalidad y presentación. En React, los componentes son la unidad básica de construcción de aplicaciones.
+
+\item[Control Empírico] Enfoque de gestión basado en la observación, experimentación y adaptación continua, que constituye la base filosófica de Scrum y otras metodologías ágiles.
+
+\item[Criterios de Aceptación] Condiciones específicas y medibles que debe cumplir una historia de usuario para considerarse completada y aceptada por el Product Owner.
+
+\item[Context API] Mecanismo de React para compartir datos entre componentes sin necesidad de pasar props manualmente a través de cada nivel del árbol de componentes.
+
+\item[CORS (Cross-Origin Resource Sharing)] Mecanismo de seguridad que permite o restringe recursos solicitados en una aplicación web desde un dominio diferente al que sirvió el recurso original.
+
+\item[CRUD] Acrónimo de Create, Read, Update, Delete. Operaciones básicas de persistencia de datos en bases de datos y APIs.
+
+\item[Daily Standup] Reunión diaria de sincronización del equipo Scrum, típicamente de 15 minutos, donde cada miembro comparte qué hizo ayer, qué hará hoy y qué impedimentos enfrenta.
+
+\item[Debugging] Proceso sistemático de identificar, analizar y corregir errores o bugs en el código de software mediante herramientas y técnicas especializadas.
+
+\item[Definition of Done (DoD)] Conjunto de criterios acordados por el equipo Scrum que definen cuándo una historia de usuario o incremento está verdaderamente completo y listo para entrega.
+
+\item[Deuda Técnica] Costo implícito de trabajo adicional futuro causado por elegir una solución fácil o rápida ahora en lugar de usar un mejor enfoque que tomaría más tiempo.
+
+\item[DOM Virtual] Representación en memoria del DOM (Document Object Model) utilizada por React para optimizar actualizaciones de la interfaz, comparando cambios antes de aplicarlos al DOM real.
+
+\item[Docker] Plataforma de contenedorización que permite empaquetar aplicaciones y sus dependencias en contenedores portátiles que pueden ejecutarse en cualquier entorno.
+
+\item[ECR (Elastic Container Registry)] Registro de contenedores Docker completamente administrado de AWS que facilita el almacenamiento, gestión y despliegue de imágenes de contenedores.
+
+\item[Edge Case] Caso límite o excepcional en pruebas de software que ocurre en los extremos de los parámetros operativos, importante para garantizar la robustez del sistema.
+
+\item[Editor Visual] Interfaz gráfica que permite crear aplicaciones mediante manipulación directa de elementos visuales, sin necesidad de escribir código manualmente.
+
+\item[Épica] Conjunto grande de trabajo en Scrum que representa una funcionalidad compleja y que se divide en múltiples historias de usuario más pequeñas y manejables.
+
+\item[Event Loop] Mecanismo fundamental de Node.js para manejar operaciones asíncronas, permitiendo ejecutar código no bloqueante mediante un ciclo continuo de procesamiento de eventos.
+
+\item[Frontend] Parte del sistema que se ejecuta en el navegador del usuario y maneja la presentación visual y la interacción con el usuario.
+
+\item[Full Stack] Término que describe a un desarrollador o sistema que abarca tanto el frontend como el backend de una aplicación.
+
+\item[Git] Sistema de control de versiones distribuido utilizado para rastrear cambios en el código fuente durante el desarrollo de software.
+
+\item[GPT (Generative Pre-trained Transformer)] Familia de modelos de lenguaje desarrollados por OpenAI, capaces de generar texto coherente y realizar diversas tareas de procesamiento de lenguaje natural.
+
+\item[Hook (React)] Funciones especiales de React que permiten usar estado y otras características de React en componentes funcionales sin necesidad de clases.
+
+\item[HTTPS (Hypertext Transfer Protocol Secure)] Versión segura del protocolo HTTP que utiliza cifrado SSL/TLS para proteger la comunicación entre el navegador y el servidor.
+
+\item[IA Generativa] Tipo de inteligencia artificial capaz de crear contenido nuevo (texto, imágenes, código) basándose en patrones aprendidos de datos de entrenamiento.
+
+\item[Jimp (JavaScript Image Manipulation Program)] Biblioteca de Node.js para procesamiento de imágenes completamente escrita en JavaScript. Utilizada en Irakani Builder para manipulación de iconos y recursos visuales.
+
+\item[Jira] Herramienta de gestión de proyectos y seguimiento de issues utilizada ampliamente en desarrollo de software ágil.
+
+\item[JWT (JSON Web Token)] Estándar abierto para crear tokens de acceso que permiten la autenticación y autorización segura entre partes mediante un objeto JSON firmado digitalmente.
+
+\item[Lazy Loading] Técnica de optimización que retrasa la carga de recursos no críticos hasta que sean necesarios, mejorando el tiempo de carga inicial.
+
+\item[Microservicios] Arquitectura de software que estructura una aplicación como una colección de servicios pequeños, independientes y débilmente acoplados.
+
+\item[Middleware] Software que actúa como puente entre diferentes aplicaciones o componentes, facilitando la comunicación y el procesamiento de datos.
+
+\item[Monaco Editor] Editor de código de código abierto desarrollado por Microsoft, el mismo que impulsa Visual Studio Code, diseñado para funcionar en navegadores web.
+
+\item[Express.js] Framework web minimalista y flexible para Node.js que proporciona un conjunto robusto de características para aplicaciones web y móviles. Utilizado en el backend de Irakani Builder.
+
+\item[Few-shot Learning] Técnica de prompt engineering que proporciona al modelo de IA varios ejemplos de entrada-salida para guiar su comportamiento y mejorar la calidad de las respuestas.
+
+\item[Git Flow] Modelo de ramificación para Git que define una estructura estricta de branches (master, develop, feature, release, hotfix) para organizar el desarrollo de software.
+
+\item[GitHub Issues] Sistema de seguimiento de problemas, bugs y tareas integrado en GitHub que facilita la gestión de proyectos y la colaboración en desarrollo de software.
+
+\item[Historia de Usuario] Descripción breve y simple de una funcionalidad desde la perspectiva del usuario final, típicamente siguiendo el formato "Como [rol], quiero [acción] para [beneficio]".
+
+\item[ITERADAPTA] Nombre legal de la empresa propietaria de la marca Irakani, bajo la cual se desarrolla y comercializa Irakani Builder.
+
+\item[KPI (Key Performance Indicator)] Indicador clave de rendimiento utilizado para medir el éxito en el logro de objetivos específicos del negocio o proyecto.
+
+\item[LLM (Large Language Model)] Modelos de Lenguaje Grandes basados en redes neuronales entrenados con enormes cantidades de texto, capaces de comprender y generar lenguaje natural de forma coherente.
+
+\item[Low-Code/No-Code (LC/NC)] Plataformas de desarrollo que abstraen la complejidad de la programación tradicional mediante interfaces visuales, permitiendo crear aplicaciones con poco o ningún código.
+
+\item[Memory Leak] Fuga de memoria que ocurre cuando un programa no libera correctamente la memoria que ya no necesita, causando degradación del rendimiento y posibles fallos del sistema.
+
+\item[Merge Conflict] Conflicto que ocurre en Git al intentar fusionar cambios de diferentes ramas cuando las mismas líneas de código han sido modificadas de formas incompatibles.
+
+\item[Modelo Fundacional] Modelos de inteligencia artificial pre-entrenados con grandes cantidades de datos diversos que pueden adaptarse a múltiples tareas específicas mediante fine-tuning o prompting.
+
+\item[Multi-stage Build] Técnica de optimización de Docker que utiliza múltiples etapas de construcción en un Dockerfile para reducir el tamaño final de la imagen eliminando dependencias innecesarias.
+
+\item[Node.js] Entorno de ejecución de JavaScript del lado del servidor construido sobre el motor V8 de Chrome.
+
+\item[Onboarding] Proceso estructurado de incorporación de nuevos usuarios o miembros del equipo, proporcionándoles la información, herramientas y capacitación necesarias para ser productivos.
+
+\item[ORM (Object-Relational Mapping)] Técnica de programación que convierte datos entre sistemas de tipos incompatibles (objetos en código y tablas en bases de datos relacionales).
+
+\item[Product Backlog] Lista priorizada y dinámica de todo el trabajo pendiente en Scrum, mantenida por el Product Owner, que representa los requisitos conocidos del producto.
+
+\item[Product Owner] Rol de Scrum responsable de maximizar el valor del producto, gestionar el Product Backlog y asegurar que el equipo trabaje en las prioridades correctas.
+
+\item[Profiling] Análisis detallado del rendimiento del código que identifica cuellos de botella, uso de recursos y oportunidades de optimización mediante herramientas especializadas.
+
+\item[MySQL] Sistema de gestión de bases de datos relacional de código abierto ampliamente utilizado, conocido por su velocidad, confiabilidad y facilidad de uso.
+
+\item[mysql2] Cliente MySQL para Node.js con enfoque en rendimiento. Soporta promesas y prepared statements. Utilizado en Irakani Builder para conectar con bases de datos MySQL.
+
+\item[mssql] Cliente Microsoft SQL Server para Node.js. Utilizado en Irakani Builder para conectar con bases de datos SQL Server.
+
+\item[SQL Server] Sistema de gestión de bases de datos relacional desarrollado por Microsoft, conocido por su integración con el ecosistema Windows y herramientas empresariales.
+
+\item[Preview] Vista previa en tiempo real de la aplicación en desarrollo, permitiendo ver los cambios inmediatamente sin necesidad de compilar o desplegar.
+
+\item[Prompt] Instrucción o consulta en lenguaje natural proporcionada a un modelo de IA para guiar su respuesta o generación de contenido.
+
+\item[Prompt Engineering] Disciplina que se enfoca en diseñar y optimizar prompts para obtener los mejores resultados de modelos de lenguaje de IA.
+
+\item[Props (Properties)] Mecanismo de React para pasar datos de componentes padres a componentes hijos.
+
+\item[Puppeteer] Biblioteca de Node.js que proporciona una API de alto nivel para controlar navegadores Chrome o Chromium. Utilizada en Irakani Builder para web scraping.
+
+\item[PWA (Progressive Web App)] Aplicación web que utiliza capacidades modernas del navegador para proporcionar una experiencia similar a una aplicación nativa, incluyendo funcionamiento offline.
+
+\item[React] Biblioteca de JavaScript para construir interfaces de usuario, desarrollada y mantenida por Meta (Facebook).
+
+\item[Redis] Sistema de almacenamiento de datos en memoria de código abierto, utilizado como base de datos, caché y broker de mensajes. En Irakani Builder se utiliza para caché de respuestas de IA y gestión de sesiones.
+
+\item[Redux] Biblioteca de gestión de estado predecible para aplicaciones JavaScript, comúnmente utilizada con React.
+
+\item[Refactorización] Proceso de reestructurar código existente sin cambiar su comportamiento externo, con el objetivo de mejorar su legibilidad, mantenibilidad y estructura interna.
+
+\item[RESTful API] API que sigue los principios de REST (Representational State Transfer), utilizando métodos HTTP estándar y URLs para operaciones sobre recursos.
+
+\item[Scrum] Marco de trabajo ágil para gestión de proyectos que organiza el trabajo en iteraciones cortas llamadas sprints.
+
+\item[Scrum Master] Facilitador del proceso Scrum que ayuda al equipo a entender y aplicar Scrum, elimina impedimentos y protege al equipo de interrupciones externas.
+
+\item[Seed/Seeder] Script que puebla una base de datos con datos iniciales o de prueba.
+
+\item[SOLID] Acrónimo de cinco principios de diseño orientado a objetos: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
+
+\item[Sprint] Período de tiempo fijo (típicamente 1-4 semanas) en Scrum durante el cual se completa un conjunto específico de trabajo.
+
+\item[Sprint Backlog] Conjunto de elementos del Product Backlog seleccionados para un sprint específico, junto con el plan para entregarlos y alcanzar el objetivo del sprint.
+
+\item[Sprint Planning] Ceremonia de Scrum al inicio de cada sprint donde el equipo planifica el trabajo a realizar, selecciona historias del Product Backlog y define el objetivo del sprint.
+
+\item[Sprint Retrospective] Reunión al final de cada sprint donde el equipo Scrum reflexiona sobre su proceso de trabajo e identifica mejoras para implementar en el siguiente sprint.
+
+\item[Sprint Review] Demostración de las funcionalidades completadas al final del sprint, donde el equipo presenta el incremento a stakeholders y recopila feedback.
+
+\item[SQL (Structured Query Language)] Lenguaje estándar para gestionar y manipular bases de datos relacionales.
+
+\item[Stack Overflow] Plataforma comunitaria de preguntas y respuestas para programadores, ampliamente utilizada para resolver problemas técnicos y compartir conocimiento.
+
+\item[Story Points] Unidad abstracta de estimación de esfuerzo en Scrum que considera complejidad, cantidad de trabajo e incertidumbre, en lugar de tiempo absoluto.
+
+\item[SSL/TLS] Protocolos criptográficos que proporcionan comunicaciones seguras sobre una red, comúnmente utilizados para asegurar conexiones HTTPS.
+
+\item[Stakeholder] Persona o grupo con interés o participación en un proyecto, que puede afectar o ser afectado por sus resultados.
+
+\item[Target Group] Grupo de destinos (instancias EC2, contenedores, direcciones IP) para balanceo de carga en AWS, que recibe tráfico distribuido según reglas configuradas.
+
+\item[Token] En el contexto de IA, unidad básica de texto procesada por modelos de lenguaje. En autenticación, cadena de caracteres que representa credenciales de acceso.
+
+\item[Transformer] Arquitectura de red neuronal introducida en 2017 que utiliza mecanismos de atención y constituye la base de los modelos de lenguaje grandes (LLMs) modernos.
+
+\item[TypeORM] ORM para TypeScript y JavaScript que soporta múltiples bases de datos y proporciona una forma elegante de trabajar con datos.
+
+\item[TypeScript] Superconjunto tipado de JavaScript que compila a JavaScript plano, añadiendo tipos estáticos opcionales al lenguaje.
+
+\item[UI/UX (User Interface/User Experience)] UI se refiere al diseño visual de la interfaz; UX abarca toda la experiencia del usuario al interactuar con el producto.
+
+\item[Validación] Proceso de verificar que los datos cumplen con criterios específicos antes de ser procesados o almacenados.
+
+\item[Valkey] Sistema de caché distribuido de código abierto (fork de Redis) utilizado para almacenamiento en memoria de alta velocidad y gestión de estructuras de datos.
+
+\item[WebSocket] Protocolo de comunicación que proporciona canales de comunicación bidireccional full-duplex sobre una única conexión TCP.
+
+\end{description}
+\subsection{Anexo B: Encuesta de Satisfacción de Usuarios}
+
+\subsubsection{Descripción de la Encuesta}
+
+La encuesta de satisfacción fue diseñada para evaluar la percepción de los usuarios sobre Irakani Builder en comparación con la plataforma anterior. Se aplicó a 3 usuarios del equipo de desarrollo que utilizaron activamente la plataforma durante el período de pruebas.
+
+\subsubsection{Instrumento de Evaluación}
+
+A continuación se presenta el cuestionario completo utilizado para la evaluación:
+
+\textbf{Pregunta 1: Ahorro de Tiempo}
+
+En comparación con la plataforma anterior, ¿cuánto tiempo consideras que ahorras al crear un prototipo básico con Irakani Builder?
+
+\begin{itemize}
+    \item[$\square$] Nada
+    \item[$\square$] 10 - 20\%
+    \item[$\square$] 30 - 50\%
+    \item[$\square$] Más del 50\%
+\end{itemize}
+
+\textbf{Pregunta 2: Utilidad del Asistente de IA}
+
+Del 1 al 5, ¿qué tan útil consideras al Asistente de IA (Chat) para resolver dudas o generar código rápido?
+
+\begin{itemize}
+    \item[$\square$] 1 (Nada útil)
+    \item[$\square$] 2 (Poco útil)
+    \item[$\square$] 3 (Moderadamente útil)
+    \item[$\square$] 4 (Útil)
+    \item[$\square$] 5 (Muy útil)
+\end{itemize}
+
+\textbf{Pregunta 3: Generación Automática}
+
+¿La generación automática de iconos y formularios acelera tu flujo de trabajo?
+
+\begin{itemize}
+    \item[$\square$] Sí
+    \item[$\square$] No
+    \item[$\square$] Parcialmente
+\end{itemize}
+
+\textbf{Pregunta 4: Calidad del Código Generado}
+
+Del 1 al 5, ¿cómo calificas la calidad del código generado por la IA (requiere pocas correcciones manuales)?
+
+\begin{itemize}
+    \item[$\square$] 1 (Muy baja calidad)
+    \item[$\square$] 2 (Baja calidad)
+    \item[$\square$] 3 (Calidad aceptable)
+    \item[$\square$] 4 (Buena calidad)
+    \item[$\square$] 5 (Excelente calidad)
+\end{itemize}
+
+\textbf{Pregunta 5: Frecuencia de Alucinaciones}
+
+¿Con qué frecuencia la IA alucina o genera estructuras incorrectas?
+
+\begin{itemize}
+    \item[$\square$] Nunca
+    \item[$\square$] Rara vez
+    \item[$\square$] Frecuentemente
+    \item[$\square$] Siempre
+\end{itemize}
+
+\textbf{Pregunta 6: Intuitividad de la Interfaz}
+
+Del 1 al 5, ¿qué tan intuitiva es la interfaz de paneles redimensionables y el editor visual?
+
+\begin{itemize}
+    \item[$\square$] 1 (Nada intuitiva)
+    \item[$\square$] 2 (Poco intuitiva)
+    \item[$\square$] 3 (Moderadamente intuitiva)
+    \item[$\square$] 4 (Intuitiva)
+    \item[$\square$] 5 (Muy intuitiva)
+\end{itemize}
+
+\textbf{Pregunta 7: Experiencia con Monaco Editor}
+
+Del 1 al 5, ¿cómo evaluarías la experiencia de edición de código con Monaco Editor integrado en la web?
+
+\begin{itemize}
+    \item[$\square$] 1 (Muy mala)
+    \item[$\square$] 2 (Mala)
+    \item[$\square$] 3 (Aceptable)
+    \item[$\square$] 4 (Buena)
+    \item[$\square$] 5 (Excelente)
+\end{itemize}
+
+\textbf{Pregunta 8: Sugerencias para Versión 2.0 (Pregunta Abierta)}
+
+¿Qué funcionalidad específica agregarías en una versión 2.0 para mejorar aún más tu productividad?

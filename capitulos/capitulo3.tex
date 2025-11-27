@@ -1,0 +1,348 @@
+\section{Marco teórico}
+
+Este capítulo presenta los fundamentos conceptuales, contextuales y tecnológicos que sustentan el desarrollo del sistema ``Irakani Builder''. Se estructura a partir del análisis del entorno de la industria del desarrollo de software y los desafíos operativos específicos de la empresa Irakani, que definen la problemática y justifican la necesidad del proyecto.
+
+\subsection{Marco Contextual y Problema de Negocio}
+
+\subsubsection{La Evolución del Desarrollo de Software: Del Código Manual a la Asistencia Inteligente}
+
+La industria del desarrollo de software se encuentra en una fase de transformación acelerada, impulsada por la creciente demanda de digitalización. Esta evolución ha redefinido las herramientas y procesos, marcando dos hitos clave: la abstracción del código mediante plataformas Low-Code/No-Code y la generación de código asistida por Inteligencia Artificial.
+
+\textbf{La Abstracción del Código con Plataformas Low-Code/No-Code (LC/NC)}
+
+Las plataformas LC/NC surgieron como una respuesta directa a la necesidad de acelerar la entrega de software y ampliar el número de personas capaces de crear aplicaciones.
+
+Las plataformas Low-Code/No-Code son entornos que abstraen la complejidad de la programación. En lugar de escribir código línea por línea, los usuarios emplean interfaces visuales con componentes pre-construidos que pueden usar para diseñar la interfaz y la lógica de una aplicación. La plataforma se encarga de interpretar este diseño visual y generar automáticamente el código subyacente necesario para que la aplicación funcione. Este enfoque no solo acelera el desarrollo, sino que lo democratiza, permitiendo que perfiles no estrictamente técnicos participen en la creación de soluciones digitales \cite{microsoft_lowcode}.
+
+El impacto de esta democratización es profundo. Según un análisis de Gartner, Inc. (2022), se proyecta que para 2025, el 70\% de las nuevas aplicaciones desarrolladas por empresas utilizarán tecnologías low-code o no-code, en un mercado que sigue creciendo a un ritmo superior al 20\% anual.
+
+\textbf{La Generación de Código con Inteligencia Artificial (IA) Generativa}
+
+Más recientemente, la industria ha dado un paso más allá de la abstracción hacia la generación activa de código, gracias a la IA Generativa.
+
+La IA Generativa en el desarrollo de software utiliza Modelos de Lenguaje Grandes (LLMs) que han sido entrenados con vastas cantidades de código fuente y texto técnico. A diferencia de las plataformas LC/NC que ocultan el código, estas herramientas funcionan como un ``asistente de desarrollador'' que genera código directamente a partir de instrucciones en lenguaje natural (prompts). Por ejemplo, un desarrollador puede solicitar ``crea una función en Python para conectar a una API REST y obtener datos de usuarios'', y el modelo producirá un bloque de código funcional y contextualizado. Herramientas como GitHub Copilot se integran en el entorno de desarrollo para ofrecer sugerencias en tiempo real, desde completar una sola línea hasta escribir funciones enteras \cite{ibm_genai}.
+
+Este salto cuantitativo en la productividad está redefiniendo los estándares de eficiencia. Un estudio controlado referenciado por GitHub demostró que los desarrolladores que utilizaron GitHub Copilot completaron sus tareas un 55\% más rápido \cite{peng_copilot}.
+
+La adopción de estas tecnologías ya no es una opción, sino un imperativo estratégico. Como señalan McKinsey \& Company, el potencial económico de la IA generativa es inmenso, y las empresas que no integran estas capacidades en sus flujos de trabajo se arriesgan a una pérdida de competitividad sistémica \cite{mckinsey_genai, swift_genai}.
+
+
+\subsubsection{El Contexto Operativo Interno: La Plataforma app.irakani.com como Deuda Técnica}
+
+Dentro del panorama industrial descrito, la plataforma interna app.irakani.com fue la respuesta inicial de Irakani a la necesidad de agilizar el desarrollo. Sin embargo, con el tiempo, ha dejado de ser una solución para convertirse en un claro ejemplo de deuda técnica.
+
+El término ``deuda técnica'', acuñado por Ward Cunningham, describe una metáfora que enmarca las consecuencias a largo plazo de decisiones de diseño o desarrollo tomadas para acelerar la entrega a corto plazo. Al igual que una deuda financiera, esta deuda técnica acumula ``intereses'' en forma de un mayor esfuerzo requerido para el mantenimiento, la corrección de errores y la adición de nuevas funcionalidades \cite{fowler_techdebt}. Si no se ``paga'' (refactorizando el código, actualizando la arquitectura), el costo de la ineficiencia puede llegar a superar el valor que aporta la aplicación.
+
+La plataforma actual de Irakani encarna esta problemática. Las decisiones arquitectónicas del pasado, si bien funcionales en su momento, ahora imponen una carga operativa tan alta que el esfuerzo requerido para mantenerla y adaptarla supera con creces los beneficios que ofrece.
+
+\textbf{El Problema de Negocio: La Obsolescencia como Freno a la Rentabilidad y la Innovación}
+
+El problema de negocio que aborda el proyecto Irakani Builder se deriva directamente de esta deuda técnica acumulada. Se manifiesta en dos dimensiones críticas:
+
+\begin{enumerate}
+    \item \textbf{Ineficiencia Operativa y Altos Costos:} La deuda técnica de app.irakani.com se traduce directamente en ineficiencia y costos elevados. Esto se debe a una arquitectura obsoleta y monolítica, donde los componentes están fuertemente acoplados, dificultando las modificaciones y actualizaciones. La ineficiencia del ciclo de desarrollo, evidenciada por las 12 horas necesarias para generar una aplicación base, es un síntoma directo de este problema. Esta lentitud impacta la estructura de costos, tal como se documenta en el caso de estudio interno ``Ojo Zarco'', donde los costos de mano de obra se elevaron aproximadamente un 33\% en comparación con una solución optimizada, simplemente por el tiempo extra que los desarrolladores invirtieron ``luchando'' contra la plataforma.
+    
+    Esta situación es consistente con análisis de la industria, como el de McKinsey \& Company (2020), que encontró que entre el 10\% y el 20\% del presupuesto tecnológico destinado a nuevos productos es, en realidad, desviado para resolver problemas causados por la deuda técnica existente.
+    
+    \item \textbf{Brecha Estratégica por Ausencia de Inteligencia Artificial:} Esta es la deficiencia más grave y una consecuencia directa de la deuda técnica. La arquitectura rígida y las tecnologías desactualizadas de app.irakani.com hacen que la integración de servicios modernos de IA Generativa sea técnicamente inviable o prohibitivamente costosa. Esta incapacidad de evolucionar posiciona a Irakani en una clara desventaja competitiva.
+    
+    La magnitud de la oportunidad perdida queda clara en análisis macroeconómicos. Un informe de Goldman Sachs (2023) estima que la IA generativa podría aumentar el PIB mundial en un 7\% (casi \$7 billones de dólares) a lo largo de una década \cite{boughedda_goldman}. La incapacidad de Irakani para aprovechar esta ola de innovación no es solo una oportunidad perdida, sino una amenaza existencial a largo plazo, ya que la IA se está convirtiendo en un motor clave de la productividad económica \cite{aei_genai}.
+\end{enumerate}
+
+
+\subsection{Marco Teórico y Tecnológico}
+
+Esta sección profundiza en los conceptos, paradigmas y herramientas tecnológicas que constituyen la base fundamental para el diseño y desarrollo de ``Irakani Builder''. El objetivo es establecer el sustento teórico que justifica cada una de las decisiones de arquitectura y la selección del stack tecnológico del proyecto.
+
+\subsubsection{Paradigmas de Desarrollo de Software}
+
+La concepción de Irakani Builder responde a la fusión de dos paradigmas de desarrollo que, si bien fueron introducidos en el marco contextual, operan bajo principios técnicos fundamentalmente distintos: el enfoque declarativo de las plataformas Low-Code/No-Code y el enfoque generativo del desarrollo asistido por IA.
+
+\textbf{Paradigma Declarativo: Plataformas Low-Code/No-Code (LC/NC)}
+
+El principio fundamental de las plataformas LC/NC es abstraer la complejidad del desarrollo a través de un modelo declarativo y dirigido por metadatos (metadata-driven).
+
+En lugar de escribir código imperativo (que le dice a la computadora cómo hacer algo paso a paso), el usuario trabaja de forma declarativa (define qué quiere lograr). Al usar un editor visual para arrastrar un formulario o conectar una base de datos, el usuario no está escribiendo código, sino que está creando metadatos: un modelo de datos que describe la estructura, la apariencia y el comportamiento de la aplicación. La plataforma posee un motor de renderizado y ejecución que interpreta estos metadatos en tiempo real para generar y presentar la aplicación funcional. Este desacoplamiento entre el modelo (los metadatos) y la vista (la aplicación generada) es lo que permite una agilidad radical \cite{outsystems_approach}.
+
+Este mercado está en auge precisamente porque responde a la necesidad crítica de las empresas de acelerar la entrega de soluciones digitales, como lo confirma el análisis de Gartner \cite{gartner_forecast_2023}. Irakani Builder adopta este principio para ofrecer un entorno visual y estructurado.
+
+\textbf{Paradigma Generativo: Desarrollo Asistido por Inteligencia Artificial (AI-Assisted Development)}
+
+Este es el paradigma evolutivo que Irakani Builder busca liderar. A diferencia del enfoque determinista de LC/NC, el desarrollo asistido por IA introduce un modelo generativo y probabilístico.
+
+Este paradigma no se basa en un modelo de metadatos predefinido, sino en la capacidad de los LLMs para generar código nuevo a partir de patrones aprendidos. Cuando un desarrollador le pide a una herramienta como GitHub Copilot que cree una función, el modelo no busca en una biblioteca de componentes; predice la secuencia de código más probable que satisface la petición, basándose en los miles de millones de ejemplos con los que fue entrenado. Actúa como un ``programador en par'' (pair programmer), que no solo acelera la escritura de código repetitivo, sino que también ayuda a los desarrolladores a mantener el flujo de trabajo y a gastar menos energía mental en tareas triviales \cite{github_copilot_research}.
+
+\textbf{Síntesis en Irakani Builder:}
+
+Irakani Builder no se limita a adoptar uno de estos paradigmas, sino que los sintetiza estratégicamente. Utiliza la IA Generativa para la fase inicial de creación, traduciendo una descripción en lenguaje natural a un modelo de metadatos estructurado. Posteriormente, presenta este modelo al usuario a través de un entorno visual declarativo (LC/NC), donde puede ser validado, modificado y gestionado de forma segura y eficiente. De esta manera, combina la flexibilidad del lenguaje natural con la robustez de un sistema basado en modelos.
+
+
+\subsubsection{Arquitecturas de Software Modernas}
+
+Para evitar la obsolescencia y los cuellos de botella del sistema anterior, Irakani Builder se fundamentará en principios de arquitectura moderna que garantizan escalabilidad, mantenibilidad y resiliencia. Esto implica un alejamiento deliberado de la arquitectura monolítica tradicional en favor de un enfoque distribuido basado en microservicios y comunicado a través de APIs RESTful.
+
+\textbf{El Problema: La Arquitectura Monolítica}
+
+La plataforma app.irakani.com sigue un patrón monolítico, donde todos los componentes de la aplicación (autenticación, gestión de usuarios, generación de aplicaciones, etc.) están empaquetados en un único proceso fuertemente acoplado. Este enfoque, si bien es simple de iniciar, conduce inevitablemente a los problemas de deuda técnica ya mencionados: cualquier pequeño cambio requiere volver a desplegar toda la aplicación, un error en un módulo puede colapsar el sistema completo, y la base de código se vuelve demasiado compleja para mantener o escalar eficientemente.
+
+\textbf{La Solución: Arquitectura de Microservicios}
+
+En contraposición, un enfoque de microservicios estructura una aplicación como una colección de servicios pequeños, autónomos y débilmente acoplados.
+
+Cada servicio es como una mini-aplicación independiente con una única responsabilidad de negocio (por ejemplo, un servicio para la autenticación, otro para la generación de código con IA, y un tercero para la gestión de bases de datos). Cada uno de estos servicios:
+
+\begin{itemize}
+    \item \textbf{Se ejecuta en su propio proceso:} Esto garantiza el aislamiento. Un fallo en el servicio de generación de código no afectará al servicio de autenticación.
+    \item \textbf{Se comunica a través de APIs bien definidas:} Los servicios no comparten memoria ni código directamente; se comunican a través de protocolos ligeros, típicamente sobre HTTP con APIs RESTful.
+    \item \textbf{Puede ser desarrollado, desplegado y escalado de forma independiente:} Si el servicio de generación con IA requiere más potencia de cómputo, solo ese servicio se escala, sin afectar al resto de la aplicación. Esto permite un uso mucho más eficiente de los recursos \cite{aws_microservices}.
+\end{itemize}
+
+Esta modularidad, como explica Red Hat, mejora drásticamente la tolerancia a fallos y permite a los equipos utilizar el stack tecnológico más adecuado para cada tarea específica, optimizando la herramienta para el trabajo a realizar \cite{redhat_microservices}.
+
+\textbf{El Estándar de Comunicación: APIs RESTful}
+
+Para que los microservicios y el frontend se comuniquen de manera eficiente y estandarizada, se requiere un protocolo de comunicación robusto. Las APIs RESTful (Representational State Transfer) son el estándar de facto para la web.
+
+REST no es una tecnología, sino un conjunto de principios o restricciones arquitectónicas que, si se siguen, producen un sistema escalable, desacoplado y fácil de mantener. Los principios clave son:
+
+\begin{itemize}
+    \item \textbf{Interfaz Uniforme:} Los recursos (como un usuario o una aplicación) se identifican con URIs únicas (ej. /api/applications/app-123). Se manipulan a través de una representación estándar (JSON) usando los verbos HTTP (GET para leer, POST para crear, PUT para actualizar, DELETE para borrar).
+    \item \textbf{Sin Estado (Stateless):} Cada solicitud del cliente al servidor debe contener toda la información necesaria para ser procesada. El servidor no almacena ningún estado de la sesión del cliente. Esta restricción es fundamental para la escalabilidad, ya que cualquier servidor puede atender cualquier solicitud, facilitando el balanceo de cargas.
+    \item \textbf{Separación Cliente-Servidor:} El cliente (frontend de Irakani Builder) y el servidor (los microservicios) están completamente desacoplados. Solo se conocen a través de la API, lo que permite que ambos evolucionen de forma independiente.
+\end{itemize}
+
+Como define Postman, este conjunto de principios garantiza la interoperabilidad entre los distintos componentes de Irakani Builder \cite{postman_rest}.
+
+
+\subsubsection{Tecnologías Clave del Stack de Desarrollo}
+
+La elección de cada tecnología en el stack de Irakani Builder responde a criterios de rendimiento, escalabilidad, soporte de la comunidad y, fundamentalmente, su capacidad para implementar las características deseadas de una plataforma de desarrollo moderna.
+
+\textbf{Frontend - React 18 y el Paradigma Declarativo}
+
+React es la biblioteca de JavaScript elegida para construir la interfaz de usuario de Irakani Builder. Su principal ventaja radica en su paradigma declarativo, que simplifica la creación de UIs complejas e interactivas.
+
+El enfoque declarativo de React se materializa a través de su DOM Virtual. En lugar de manipular directamente el DOM del navegador (un proceso lento y costoso), React mantiene una representación del DOM en memoria. Cuando el estado de un componente cambia (por ejemplo, el usuario edita el nombre de una aplicación), React crea un nuevo DOM Virtual, lo compara con la versión anterior mediante un eficiente algoritmo de ``diferenciación'' (diffing), y calcula el conjunto mínimo de cambios necesarios. Finalmente, aplica únicamente esas modificaciones al DOM real en un proceso optimizado.
+
+Para un editor visual de aplicaciones, donde la interfaz es altamente dinámica y sufre constantes actualizaciones (arrastrar componentes, modificar propiedades, etc.), este mecanismo es crucial. Asegura que la interfaz se mantenga fluida y responsiva sin importar la complejidad, proporcionando una experiencia de usuario de alta calidad. Su arquitectura basada en componentes reutilizables es ideal para construir la paleta de elementos visuales que los usuarios utilizarán para ensamblar sus aplicaciones \cite{react_learn}.
+
+\textbf{Frontend - TypeScript para Escalabilidad y Robustez}
+
+TypeScript es un superconjunto de JavaScript que añade tipado estático opcional, una característica indispensable para un proyecto de esta envergadura.
+
+TypeScript introduce un proceso de compilación que analiza el código antes de que se ejecute. Durante esta fase, verifica que los tipos de datos sean consistentes (ej. que no se intente usar un string como si fuera un number). Si detecta una incoherencia, arroja un error de compilación, impidiendo que el bug llegue a producción. Esto crea un ``contrato'' de datos que define la estructura de objetos complejos.
+
+La aplicación gestionará una estructura de datos JSON compleja que representa las aplicaciones creadas por los usuarios. El uso de TypeScript para definir interfaces (interface) que modelen esta estructura es vital. Garantiza que tanto el código que interactúa con la IA como el que renderiza el editor visual traten los datos de manera consistente, lo que reduce drásticamente los errores en tiempo de ejecución, facilita la refactorización segura y mejora la colaboración entre los miembros del equipo \cite{papa_typescript}.
+
+\textbf{Backend - Node.js y el Entorno de Ejecución Asíncrono}
+
+Node.js es el entorno de ejecución de JavaScript del lado del servidor elegido para construir los microservicios del backend.
+
+La principal ventaja de Node.js es su modelo de E/S (Entrada/Salida) asíncrono y sin bloqueo, gestionado por un mecanismo conocido como el Event Loop. Cuando el servidor recibe una petición que requiere una operación de E/S lenta (como una consulta a la base de datos o una llamada a la API de AWS Bedrock), en lugar de esperar a que termine (bloqueando el hilo de ejecución), delega la tarea al sistema operativo y pasa inmediatamente a atender la siguiente petición. Una vez que la operación de E/S finaliza, el Event Loop ejecuta la función de callback asociada con el resultado.
+
+Este modelo es extremadamente eficiente para manejar una gran cantidad de conexiones concurrentes con un bajo consumo de memoria. En el contexto de Irakani Builder, que debe gestionar simultáneamente las interacciones de los usuarios, las llamadas a la IA y las operaciones de base de datos, Node.js garantiza una alta escalabilidad y un rendimiento óptimo para la API \cite{nodejs_about}.
+
+\textbf{Editor de Código - Monaco Editor}
+
+Para ofrecer una experiencia de desarrollo de primer nivel dentro de la plataforma, se integra Monaco Editor.
+
+Monaco Editor es el componente de edición de código que impulsa a Visual Studio Code, extraído como una biblioteca independiente para ser utilizado en aplicaciones web. Proporciona, directamente en el navegador, las características avanzadas que un desarrollador espera de un IDE de escritorio: resaltado de sintaxis para múltiples lenguajes, autocompletado inteligente (IntelliSense), validación de errores en tiempo real y un rico API para personalización.
+
+La integración de Monaco es fundamental para cumplir la promesa de ser una herramienta para desarrolladores. Cuando la IA genera código, el desarrollador necesita un entorno potente y familiar para revisarlo, refinarlo y personalizarlo. Monaco Editor cierra la brecha entre la generación de código asistida y la edición manual avanzada, garantizando una experiencia de desarrollo fluida y profesional \cite{monaco_editor}.
+
+
+\subsubsection{Integración de Inteligencia Artificial Generativa}
+
+El componente más innovador de Irakani Builder es la integración nativa de IA para la generación de código. Esta capacidad no se basa en una única tecnología, sino en la orquestación de tres pilares fundamentales: los Modelos de Lenguaje Grandes (LLMs) como motor, AWS Bedrock como plataforma de acceso, y la Ingeniería de Prompts como disciplina de control.
+
+\textbf{1. Modelos de Lenguaje Grandes (LLMs) como Motor de Generación}
+
+Los LLMs son el ``cerebro'' de la funcionalidad generativa de Irakani Builder. Son modelos de aprendizaje profundo basados en la arquitectura Transformer, entrenados con enormes cantidades de datos de texto y código.
+
+La arquitectura Transformer permite a los modelos procesar texto de manera no secuencial y ponderar la importancia de diferentes palabras en una instrucción a través de un mecanismo llamado ``atención''. Esto les permite comprender el contexto, la gramática y las estructuras lógicas complejas. Cuando reciben un prompt, no buscan una respuesta predefinida; en su lugar, predicen probabilísticamente la secuencia de ``tokens'' (palabras o fragmentos de código) más probable que debería seguir a la instrucción, basándose en los patrones aprendidos durante su entrenamiento \cite{google_transformer}.
+
+\textbf{Relevancia para Irakani Builder:} En el contexto del proyecto, el LLM no solo genera código, sino que primero debe traducir una instrucción en lenguaje natural (ej. ``crea un formulario de registro con campos para nombre, email y contraseña'') a una representación de datos estructurada en formato JSON que la plataforma pueda interpretar. Su capacidad para entender la intención semántica del usuario es lo que permite esta traducción de lo no estructurado a lo estructurado \cite{vaswani_attention}.
+
+\textbf{2. AWS Bedrock como Plataforma de Acceso a Modelos Fundacionales (PaaS)}
+
+Entrenar y alojar un LLM de vanguardia es computacionalmente prohibitivo y requiere una infraestructura especializada. AWS Bedrock resuelve este problema al funcionar como una Plataforma como Servicio (PaaS) para IA Generativa.
+
+Bedrock abstrae toda la complejidad de la infraestructura. Proporciona una única API unificada para acceder a una variedad de modelos fundacionales de alto rendimiento (de empresas como AI21 Labs, Anthropic, Cohere y Amazon). Esto significa que Irakani Builder puede enviar una solicitud a un único endpoint de AWS, y Bedrock se encarga de dirigirla al modelo seleccionado, gestionar el escalado de los servidores GPU, garantizar la seguridad y mantener los modelos actualizados.
+
+La elección de Bedrock es una decisión estratégica clave. Permite al proyecto integrar capacidades de IA de clase mundial sin la enorme inversión y el riesgo de gestionar la infraestructura subyacente. Además, proporciona flexibilidad: si en el futuro surge un modelo más eficiente para la generación de código, Irakani Builder puede cambiar de proveedor de modelo con modificaciones mínimas en su código, gracias a la API unificada \cite{aws_bedrock}.
+
+\textbf{3. Ingeniería de Prompts para la Generación de Código Preciso}
+
+La calidad del resultado de un LLM depende directamente de la calidad de la instrucción (prompt). La Ingeniería de Prompts es la disciplina de diseñar estas instrucciones para guiar al modelo hacia la respuesta deseada.
+
+Dado que los LLMs son probabilísticos, un prompt vago puede generar resultados impredecibles. Para asegurar que la salida sea siempre un JSON válido y con la estructura que Irakani Builder espera, se utilizan técnicas avanzadas:
+
+\begin{itemize}
+    \item \textbf{Few-shot Learning:} Se proporcionan al modelo ejemplos concretos dentro del prompt. Se le muestra un par de ejemplos de una petición de usuario y el JSON exacto que se generó. Esto le da al modelo un patrón claro que debe seguir.
+    \item \textbf{Chain-of-Thought:} Se le pide al modelo que ``piense'' paso a paso. El prompt le instruye a descomponer la petición del usuario en partes lógicas (identificar formularios, luego campos, luego propiedades) antes de generar el JSON final. Esto mejora drásticamente la precisión en tareas complejas.
+\end{itemize}
+
+Esta disciplina es fundamental para la fiabilidad de la plataforma. La solicitud del usuario se envuelve en un ``meta-prompt'' cuidadosamente diseñado que contiene estas técnicas, asegurando que el código generado se ajuste a los requisitos específicos, las convenciones de estilo y la arquitectura de la plataforma \cite{aws_prompt_engineering}.
+
+
+\subsection{Marco Metodológico}
+
+Para el desarrollo del proyecto ``Irakani Builder'', se adoptó un marco de trabajo Ágil, en contraposición a las metodologías predictivas tradicionales como el Modelo en Cascada. La selección de la metodología se basa en una evaluación rigurosa del contexto del proyecto, el cual se caracteriza por la alta incertidumbre tecnológica inherente a la integración de sistemas de Inteligencia Artificial Generativa y la necesidad de gestionar una evolución constante de requisitos funcionales.
+
+El agilismo, con su énfasis en la flexibilidad, la entrega de valor incremental y la adaptación continua, se presentó como la elección natural para gestionar la complejidad y maximizar la eficiencia del equipo de desarrollo. Dentro de este paradigma, se seleccionó Scrum como el marco de trabajo específico. Scrum proporciona una estructura definida a través de roles, eventos y artefactos, permitiendo una gestión ordenada del proyecto sin sacrificar la capacidad de respuesta ante el cambio. Este enfoque iterativo e incremental es fundamental para abordar el desarrollo de una plataforma asistida por IA \cite{servicenow_agile}.
+
+\subsubsection{Fundamento Metodológico: Del Control Predictivo al Empírico}
+
+El éxito en el desarrollo de plataformas Low-Code asistidas por IA como Irakani Builder depende fundamentalmente de la aplicación del Control Empírico. El empirismo, base filosófica de Scrum, postula que el conocimiento se genera a partir de la experiencia y que las decisiones se toman a partir de la observación de los resultados obtenidos.
+
+\textbf{La Inviabilidad del Enfoque Predictivo (Modelo en Cascada)}
+
+Las metodologías predictivas, ejemplificadas por el modelo en cascada, se basan en la premisa de que los requisitos del proyecto deben ser fijos y completamente documentados desde el inicio. Este modelo asume que el camino hacia el resultado final es conocido y estable \cite{petrova_scrum_waterfall}.
+
+El proyecto Irakani Builder no cumple con las condiciones para un enfoque predictivo, debido a dos factores críticos:
+
+\begin{enumerate}
+    \item \textbf{Volatilidad de Requisitos y Complejidad Tecnológica:} El proyecto busca resolver la deuda técnica acumulada e integrar capacidades de IA Generativa. El desarrollo implica la integración de múltiples tecnologías modernas (React 18, Node.js) y la orquestación de microservicios, lo que genera una complejidad elevada. Los proyectos que involucran ``Tecnologías nuevas, inestables o con muchos elementos diferentes a integrar,'' así como aquellos con ``Requisitos poco definidos, ambiguos, incompletos, poco maduros o cambiantes,'' son inviables bajo un modelo predictivo, requiriendo en su lugar un control empírico.
+    
+    \item \textbf{Riesgo Estratégico de Terceros (AWS Bedrock):} La funcionalidad central de generación de código y asistencia inteligente del Builder depende de la API de AWS Bedrock. La calidad, latencia, y las posibles ``alucinaciones'' (respuestas incorrectas pero verosímiles) de los modelos de IA son factores no determinísticos. Un plan fijo intentaría predecir el comportamiento de un sistema probabilístico, lo cual es inviable. El control predictivo llevaría inevitablemente a un sobrecosto y un fracaso operativo al intentar corregir desviaciones en fases tardías \cite{proyectos_agiles_control}.
+\end{enumerate}
+
+
+\subsubsection{Adopción del Framework Scrum}
+
+Dentro del paradigma Ágil, se seleccionó Scrum como el marco de trabajo específico. Scrum proporciona una estructura prescriptiva pero flexible a través de roles, eventos y artefactos definidos, lo que permite una gestión de proyectos ordenada sin sacrificar la capacidad de respuesta al cambio. Según Scrum.org, Scrum es un marco ligero que ayuda a las personas, equipos y organizaciones a generar valor a través de soluciones adaptativas para problemas complejos. Su enfoque iterativo e incremental fue fundamental para abordar el desarrollo de Irakani Builder \cite{scrum_org_what}.
+
+\textbf{Los Pilares de Scrum: Transparencia, Inspección y Adaptación}
+
+Scrum se basa en el empirismo, sostenido por tres pilares interdependientes que permiten al equipo gestionar de manera proactiva la incertidumbre de la IA y el riesgo de la deuda técnica \cite{clickup_pilares}.
+
+\begin{enumerate}
+    \item \textbf{Transparencia (Transparency):} La transparencia en Scrum garantiza que el estado real del proceso, el código base, y el progreso del producto sean visibles para todos los miembros del equipo y los stakeholders. En Irakani Builder, esto se logra mediante el uso de artefactos claros como el Product Backlog y el Sprint Backlog, la gestión del control de versiones mediante Bitbucket, y el seguimiento de tareas en Jira. En el contexto específico del desarrollo asistido por IA, la transparencia implica documentar el objetivo del modelo, su nivel de riesgo y la información del proveedor (AWS Bedrock), asegurando que el LLM no sea una ``caja negra'' inauditable \cite{ibm_ai_transparency}.
+    
+    \item \textbf{Inspección (Inspection):} El equipo inspecciona frecuentemente el progreso hacia el Objetivo del Producto y los artefactos de Scrum para detectar desviaciones inaceptables. La inspección se realiza en dos niveles clave: el Scrum Diario y la Revisión del Sprint (para inspeccionar el Incremento funcional). En Irakani Builder, esto implica la inspección temprana de si las salidas de la IA (como la estructura JSON para la ``Encuesta de Satisfacción de Visita'') son funcionalmente correctas y si el rendimiento de los endpoints RESTful del backend es óptimo.
+    
+    \item \textbf{Adaptación (Adaptation):} Si la inspección revela que el proceso o el Incremento se desvían de manera inaceptable, el equipo realiza ajustes inmediatos. La adaptación se manifiesta en la repriorización inmediata del Product Backlog o, por parte del Development Team, mediante el ajuste de las técnicas de Ingeniería de Prompts en la Retrospectiva del Sprint. Por ejemplo, si la inspección revela que la IA produce inconsistencias, el equipo adapta los meta-prompts para mejorar la precisión \cite{machado_scrum, wolpers_genai_agile}.
+\end{enumerate}
+
+\textbf{Estructura Prescriptiva de Scrum: Roles, Eventos y Artefactos}
+
+Para operar efectivamente bajo el Control Empírico, Scrum define una estructura mínima de tres Roles, cinco Eventos y tres Artefactos, esenciales para la transparencia y la cadencia del proyecto.
+
+\textbf{Roles del Equipo Scrum en ``Irakani Builder''}
+
+El Equipo Scrum es auto-organizado y multifuncional, siendo idealmente un equipo pequeño para garantizar la eficiencia y minimizar la complejidad de coordinación.
+
+\textbf{Mapeo de Roles en el Proyecto Irakani Builder}
+
+\begin{longtable}{|p{4cm}|p{3cm}|p{7cm}|}
+\hline
+\textbf{Rol organizacional} & \textbf{Rol formal de Scrum} & \textbf{Responsabilidad principal en el proyecto} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Rol organizacional} & \textbf{Rol formal de Scrum} & \textbf{Responsabilidad principal en el proyecto} \\
+\hline
+\endhead
+Luis Flores (Gerente General/CTO) & Product Owner (PO) & Maximización del valor del producto. Responsable de gestionar y priorizar el Product Backlog en función de la visión de negocio, que incluye la reducción de costos operativos y la ventaja competitiva mediante la IA. \\
+\hline
+Helmer Omar Tapia Reyes (Líder de Plataforma) & Scrum Master (SM) & Liderazgo de servicio. Responsable de garantizar que el equipo comprenda y aplique Scrum. Elimina impedimentos y protege al Development Team de interrupciones, asegurando la efectividad del proceso. \\
+\hline
+Ángel David Mariscal Soto (Desarrollador) y Equipo de Plataforma & Development Team (Developers) & Responsable de crear un Incremento de software utilizable que cumpla con la Definición de Terminado en cada Sprint. Realiza todo el trabajo técnico (frontend React/Monaco Editor y backend Node.js/AWS Bedrock). \\
+\hline
+\end{longtable}
+
+\cite{alaimo_roles, mishchanka_scrum_master, eby_scrum_team, qamyno_product_owner}
+
+
+\textbf{Eventos (Ceremonias) de Scrum}
+
+El proyecto se opera bajo una cadencia de Sprints de dos semanas, lo que facilita la inspección y adaptación constante, clave para manejar la integración compleja de la IA.
+
+\begin{longtable}{|p{3.5cm}|p{3cm}|p{2.5cm}|p{5cm}|}
+\hline
+\textbf{Evento de Scrum} & \textbf{Propósito Central} & \textbf{Duración (Timebox)} & \textbf{Función en el Desarrollo de Irakani Builder} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Evento de Scrum} & \textbf{Propósito Central} & \textbf{Duración (Timebox)} & \textbf{Función en el Desarrollo de Irakani Builder} \\
+\hline
+\endhead
+El Sprint & Generar un Incremento de valor funcional que cumpla con la Definición de Terminado. & 2 semanas & Garantiza la entrega incremental y funcional de módulos clave, como el Editor de Código Personalizado o la Gestión de Entidades. \\
+\hline
+Planificación del Sprint & Definir el Objetivo del Sprint y seleccionar elementos del Product Backlog para crear el Sprint Backlog. & Máx. 8 horas (para 4 semanas) & El Development Team (Ángel David) descompone las historias de usuario (ej. ``Integrar AWS Bedrock'') en tareas técnicas detalladas y medibles. \\
+\hline
+Scrum Diario & Inspección del progreso y sincronización del plan para las próximas 24 horas. & Máx. 15 minutos & Identificación diaria de impedimentos, como pueden ser aquellos derivados de la integración de servicios de terceros (latencia de AWS) o conflictos en el código base. \\
+\hline
+Revisión del Sprint & Presentación del Incremento funcional a los stakeholders para obtener retroalimentación y adaptar el Product Backlog. & Máx. 4 horas (para 4 semanas) & Inspección de Valor: Se valida la usabilidad de la interfaz (React 18) y la precisión de la funcionalidad de la IA. \\
+\hline
+Retrospectiva del Sprint & Inspección del proceso, las herramientas, la colaboración y el equipo para planificar mejoras de calidad y eficiencia. & Máx. 3 horas (para 4 semanas) & Adaptación del Proceso: Refinamiento de la estrategia de Prompt Engineering y ajuste de las definiciones de calidad. \\
+\hline
+\end{longtable}
+
+\textbf{Artefactos de Scrum para la Transparencia}
+
+Los Artefactos aseguran que la información esencial del proyecto sea visible y entendida por todos:
+
+\begin{itemize}
+    \item \textbf{Product Backlog (PB):} La lista única y priorizada de todo el trabajo necesario para Irakani Builder. Mantenido por el Product Owner, prioriza elementos que tienen el mayor impacto en la reducción de costos y la mitigación de la deuda técnica.
+    \item \textbf{Sprint Backlog (SB):} El subconjunto de elementos del PB seleccionados para el Sprint, junto con el plan para entregar el Incremento. El Development Team (Ángel David) gestiona este plan, adaptándolo dinámicamente.
+    \item \textbf{Incremento:} El software funcional producido al final del Sprint, cumpliendo con la Definition of Done. Es crucial que este Incremento esté en un estado potencialmente liberable.
+\end{itemize}
+
+
+\subsubsection{Fases del Proceso de Desarrollo Metodológico}
+
+El desarrollo de Irakani Builder se articula a través de fases iterativas, respaldadas por un conjunto de herramientas de ingeniería que garantizan la calidad y la continuidad, un proceso conocido como AI-Assisted Agile \cite{publicis_ai_agile}.
+
+El desarrollo se estructura siguiendo el ciclo de vida de Scrum:
+
+\begin{longtable}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{Fase} & \textbf{Descripción y Énfasis} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Fase} & \textbf{Descripción y Énfasis} \\
+\hline
+\endhead
+Fase I: Concepción y Diseño (Sprint 0) & Establecimiento de la visión, la arquitectura tecnológica preliminar y desarrollo de prototipos de Interfaz de Usuario (UI) y Experiencia de Usuario (UX). Se configura el Product Backlog inicial, priorizando funcionalidades según el mayor impacto en la reducción de costos. \\
+\hline
+Fase II: Desarrollo Iterativo e Incremental (Sprints 1-N) & Fase central donde se aplica rigurosamente el ciclo de Scrum (Planificación, Ejecución, Revisión, Retrospectiva) en una cadencia de Sprints de dos semanas. Se entregan Incrementos funcionales (ej., módulo de autenticación, esqueleto del editor visual, integración de AWS Bedrock) que construyen valor sobre la base existente. \\
+\hline
+Fase III: Pruebas y Despliegue Continuo & Enfoque en la integración y pruebas continuas. La práctica de CI/CD (Integración Continua/Despliegue Continuo) automatiza la compilación, pruebas y despliegue del código, manteniendo la calidad y asegurando que el software esté en un estado potencialmente desplegable al final de cada Sprint. \\
+\hline
+\end{longtable}
+
+\textbf{Casos de Uso Metodológicos Clave: La Ingeniería de Prompts}
+
+La metodología Scrum gestiona la interacción con la IA, utilizando sus eventos para inspeccionar el valor y adaptar la precisión de los modelos. Por ejemplo, el caso de uso de ``Generar aplicación con IA'' ejemplifica el flujo empírico:
+
+\begin{enumerate}
+    \item \textbf{Entrada y Generación:} El desarrollador (Ángel David) ingresa el prompt (``crea una Encuesta de Satisfacción''). La IA (AWS Bedrock) genera una representación de datos estructurada en JSON.
+    \item \textbf{Inspección y Fallo:} Durante la Ejecución del Sprint, el equipo inspecciona la salida JSON. Si hay errores de estructura (fallos del LLM), se documenta la desviación.
+    \item \textbf{Adaptación:} El fallo se lleva a la Retrospectiva del Sprint. El equipo adapta los meta-prompts para mejorar la precisión y evitar futuras inconsistencias en la generación de JSON. Este ciclo transforma la incertidumbre de la IA en conocimiento estructurado \cite{wolpers_genai_agile}.
+\end{enumerate}
+
+\textbf{Integración de la Ingeniería: La Definition of Done (DoD)}
+
+Para mitigar el riesgo de deuda técnica, especialmente porque la IA generará código que podría no ser ``el más optimizado'', el Development Team implementa una Definition of Done (DoD) estricta:
+
+\begin{itemize}
+    \item \textbf{Revisión y Versión:} El código ha sido revisado por pares mediante Pull Requests en Bitbucket.
+    \item \textbf{Pruebas Automatizadas:} Todas las pruebas unitarias y de integración son exitosas.
+    \item \textbf{Conformidad del Modelo:} El JSON de metadatos generado por la IA es válido y cumple con el esquema de datos interno de la plataforma.
+    \item \textbf{Optimización:} El código generado por la IA debe someterse a una refactorización mínima garantizada para asegurar las mejores prácticas de rendimiento y legibilidad.
+    \item \textbf{Despliegue Continuo:} La funcionalidad ha sido integrada y desplegada con éxito en un entorno de pruebas (CI/CD) \cite{ibm_ai_software}.
+\end{itemize}
+
+\subsubsection{Herramientas de Soporte a la Metodología}
+
+La implementación exitosa de Scrum se apoya en un conjunto de herramientas tecnológicas diseñadas para facilitar la colaboración, la transparencia y la automatización.
+
+\begin{itemize}
+    \item \textbf{Jira (Atlassian): Gestión de Proyectos y Seguimiento de Tareas.} Plataforma diseñada específicamente para la gestión ágil. Permite al equipo (incluido el Product Owner) gestionar el Product Backlog, planificar Sprints y visualizar el progreso en tableros Scrum. Es ideal para desglosar proyectos complejos en tareas gestionables \cite{atlassian_jira}.
+    
+    \item \textbf{Git y Bitbucket (Atlassian): Control de Versiones y Colaboración de Código.} Git gestiona el código fuente, y Bitbucket aloja el repositorio centralizado, ofreciendo una integración nativa con Jira. Facilita la colaboración profesional mediante Pull Requests y la automatización de flujos de trabajo de CI/CD, esencial para el trabajo en equipo en un proyecto ágil \cite{atlassian_bitbucket}.
+    
+    \item \textbf{Integración Continua / Despliegue Continuo (CI/CD):} Práctica que automatiza la compilación, las pruebas y el despliegue del software. El CI/CD es vital para mantener la calidad y la velocidad de entrega en un sistema complejo, validando automáticamente cualquier cambio en el stack React/Node.js o la integración de AWS Bedrock \cite{ibm_ai_software}.
+\end{itemize}
